@@ -1,25 +1,14 @@
+const mongoose = require('mongoose')
 
 
-const cats = [
-  {
-   name: 'Mittens',
-   favoriteFood: 'Fancy Feast',
-   owner: 'Maude',
-   shotsUpToDate: true
-  },
-  {
-    name: 'Rover',
-    favoriteFood: 'Tender Vittles',
-    owner: 'Maude',
-    shotsUpToDate: true
-  },
-  {
-    name: 'Charley',
-    favoriteFood: 'Friskies',
-    owner: 'Jane',
-    shotsUpToDate: true
-  }
-];
 
+const catSchema = new mongoose.Schema({
+  name: {type:String, required:true},
+  favoriteFood: {type:String, required:true},
+  owner: {type:String, required:true},
+  shotsUpToDate: Boolean
+})
 
-module.exports = cats
+const Cat = mongoose.model('Cat',catSchema);
+
+module.exports = Cat;

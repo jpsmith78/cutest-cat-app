@@ -2,9 +2,10 @@
 // <<<<<<<<<<<<DEPENDENCIES>>>>>>>>>>>>>>>
 // =======================================
 const express = require('express')
+const mongoose = require('mongoose')
 const app = express();
 const methodOverride = require('method-override');
-const cats = require('./models/cats.js');
+const Cat = require('./models/cats.js');
 const port = 3000;
 
 // =======================================
@@ -17,40 +18,47 @@ app.use(express.static('public'));
 // <<<<<<<7 RESTFUL ROUTES>>>>>>>>>>>>>
 // =======================================
 // URL	             HTTP Verb	   Action     Included
-// /cats/	           GET	         index      X
-// /cats/new	       GET	         new        X
-// /cats	           POST	         create     X
-// /cats/:id	       GET	         show       X
-// /cats/:id/edit	   GET	         edit       X
-// /cats/:id	       PATCH/PUT	   update
-// /cats/:id         DELETE	       destroy    X
+// /cats/	           GET	         index      XX
+// /cats/new	       GET	         new        XX
+// /cats	           POST	         create     XX
+// /cats/:id	       GET	         show       XX
+// /cats/:id/edit	   GET	         edit       XX
+// /cats/:id	       PATCH/PUT	   update     XX
+// /cats/:id         DELETE	       destroy    XX
+
+
 
 // =======================================
-// <<<<<<<<<<<<INDEX ROUTE 1>>>>>>>>>>>>>>>
+// <<<<<<<<<<<<INDEX ROUTE >>>>>>>>>>>>>>>
 // =======================================
 app.get('/cutecats',(req,res) => {
-  res.render('index.ejs',{
-    allCats: cats
+  Cat.find({},(err,cats) => {
+    res.render('index.ejs',{
+      allCats: cats
+    });
   });
+
 });
 // =======================================
-// <<<<<<<<<<<<DELETE ROUTE 5>>>>>>>>>>>>>>>
+// <<<<<<<<<<<<DELETE ROUTE >>>>>>>>>>>>>>>
 // =======================================
 app.delete('/cutecats/:id',(req,res) => {
-  cats.splice(req.params.id,1);
-  res.redirect('/cutecats')
-})
+  Cat.findByIdAndRemove(req.params.id, (err, data) => {
+    res.redirect('/cutecats');
+  });
+});
 
 // =======================================
-// <<<<<<<<<<<<EDIT ROUTE  6>>>>>>>>>>>>>>>
+// <<<<<<<<<<<<EDIT ROUTE >>>>>>>>>>>>>>>
 // =======================================
 app.get('/cutecats/:id/edit',(req,res) => {
-  res.render('edit.ejs',
-    {
-      cat: cats[req.params.id],
-      index: req.params.id
-    }
-  );
+  Cat.findById(req.params.id, (err, foundCat) => {
+    res.render('edit.ejs',
+      {
+        cat: foundCat,
+        index: req.params.id
+      });
+  });
 });
 
 // =======================================
@@ -62,21 +70,21 @@ app.put('/cutecats/:id',(req,res) => {
   }else{
     req.body.shotsUpToDate = false;
   }
-  cats[req.params.id] = req.body;
-  res.redirect('/cutecats');
-})
-
+  Cat.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
+        res.redirect('/cutecats');
+    });
+});
 
 
 
 // =======================================
-// <<<<<<<<<<<<NEW ROUTE 3>>>>>>>>>>>>>>>
+// <<<<<<<<<<<<NEW ROUTE>>>>>>>>>>>>>>>
 // =======================================
 app.get('/cutecats/new',(req,res) => {
   res.render('new.ejs')
 })
 // =======================================
-// <<<<<<<<<<<<CREATE ROUTE 4>>>>>>>>>>>>>>>
+// <<<<<<<<<<<<CREATE ROUTE>>>>>>>>>>>>>>>
 // =======================================
 app.post('/cutecats',(req,res) => {
   if(req.body.shotsUpToDate === 'on'){
@@ -84,22 +92,33 @@ app.post('/cutecats',(req,res) => {
   }else {
     req.body.shotsUpToDate = false;
   }
-  cats.push(req.body);
-  res.redirect('/cutecats');
-})
-
-// =======================================
-// <<<<<<<<<<<<SHOW ROUTE 2>>>>>>>>>>>>>>>
-// =======================================
-app.get('/cutecats/:id',(req,res) => {
-  res.render('show.ejs',
-  {
-    cat: cats[req.params.id],
-    index: req.params.id
-  },
-);
+  Cat.create(req.body, (err,createdCat) => {
+    res.redirect('/cutecats');
+  });
 });
 
+// =======================================
+// <<<<<<<<<<<<SHOW ROUTE >>>>>>>>>>>>>>>
+// =======================================
+app.get('/cutecats/:id',(req,res) => {
+  Cat.findById(req.params.id, (err,foundCat) => {
+    res.render('show.ejs',
+    {
+      cat: foundCat,
+      index: req.params.id
+    },
+  )
+
+  });
+});
+
+// =======================================
+// <<<<<<<<MONGOOSE CONNECT>>>>>>>>>>
+// =======================================
+mongoose.connect('mongodb://localhost:27017/catcrud', {useNewUrlParser: true});
+mongoose.connection.once('open',() => {
+  console.log('connected to mongo');
+})
 
 // =======================================
 // <<<<<<<<<<<<LISTEN>>>>>>>>>>>>>>>
