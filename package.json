@@ -1,0 +1,24 @@
+{
+  "name": "cutest-cat-app",
+  "version": "1.0.0",
+  "description": "Users can post pictures of their cats and vote for cutest cat",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpsmith78/cutest-cat-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jpsmith78/cutest-cat-app/issues"
+  },
+  "homepage": "https://github.com/jpsmith78/cutest-cat-app#readme",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4"
+  }
+}
