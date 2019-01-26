@@ -15,7 +15,8 @@
     <ul>
       <% for(let i =0; i < allCats.length; i++){%>
         <li>
-          <a href="/cutecats/<%=allCats[i].id%>"><%=allCats[i].name%></a>
+          <h3><%=allCats[i].name%></h3>
+          <a href="/cutecats/<%=allCats[i].id%>"><img src="<%=allCats[i].img%>" alt="<%=allCats[i].name%>" width="200px"></a>
         </li>
       <%}%>
     </ul>

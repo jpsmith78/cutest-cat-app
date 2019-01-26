@@ -8,9 +8,11 @@
   <body>
     <h1>Your Selection</h1>
     <a href="/cutecats/">Back</a>
-    <h3>Cat name: <%= cat.name; %></h3>
-    <h3>Favorite Food: <%= cat.favoriteFood; %></h3>
-    <h3>Owner: <%= cat.owner %></h3>
+    <h3>Cat name: <%=cat.name%></h3>
+    <img src="<%=cat.img%>" alt="<%=cat.name%>" width="400px" >
+    <h3>Owner: <%=cat.owner%></h3>
+    <h3>About: <%=cat.about%></h3>
+    <h3>Number of Likes: <%=cat.likes%></h3>
     <%if(cat.shotsUpToDate === true){%>
         <h3>Shots are up to date</h3>
       <%}else{%>

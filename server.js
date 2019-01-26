@@ -27,6 +27,45 @@ app.use(express.static('public'));
 // /cats/:id         DELETE	       destroy    XX
 
 
+// =======================================
+// <<<<<<<<<SEED ROUTE>>>>>>>>>>>>>
+// =======================================
+app.get('/cutecats/seed',(req,res) => {
+  Cat.create(
+    [
+      {
+        name: 'Buttons',
+        img: 'https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_1280.jpg',
+        owner: 'Beth',
+        about: 'Buttons is a cute little explorer',
+        shotsUpToDate: true
+      },
+      {
+        name: 'Buddy',
+        img: 'https://cdn.pixabay.com/photo/2017/11/09/21/41/cat-2934720_1280.jpg',
+        owner: 'Sam',
+        about: 'Buddy is a scratcher!  Be careful!',
+        shotsUpToDate: false
+      },
+      {
+        name: 'Max',
+        img: 'https://cdn.pixabay.com/photo/2017/03/14/14/49/cat-2143332_1280.jpg',
+        owner: 'Jeff',
+        about: 'Max is a lazy guy!',
+        shotsUpToDate: true
+      },
+      {
+        name: 'Mittens',
+        img: 'https://cdn.pixabay.com/photo/2017/08/23/08/33/cats-eyes-2671903_1280.jpg',
+        owner: 'Sarah',
+        about: 'Mittens loves to cuddle!',
+        shotsUpToDate: true
+      },
+
+    ],(err,data) => {
+      res.redirect('/cutecats');
+  });
+});
 
 // =======================================
 // <<<<<<<<<<<<INDEX ROUTE >>>>>>>>>>>>>>>
