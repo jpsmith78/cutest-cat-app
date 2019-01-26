@@ -21,12 +21,12 @@ app.use(express.static('public'));
 // /cats/new	       GET	         new        X
 // /cats	           POST	         create     X
 // /cats/:id	       GET	         show       X
-// /cats/:id/edit	   GET	         edit
+// /cats/:id/edit	   GET	         edit       X
 // /cats/:id	       PATCH/PUT	   update
 // /cats/:id         DELETE	       destroy    X
 
 // =======================================
-// <<<<<<<<<<<<INDEX ROUTE>>>>>>>>>>>>>>>
+// <<<<<<<<<<<<INDEX ROUTE 1>>>>>>>>>>>>>>>
 // =======================================
 app.get('/cutecats',(req,res) => {
   res.render('index.ejs',{
@@ -34,7 +34,7 @@ app.get('/cutecats',(req,res) => {
   });
 });
 // =======================================
-// <<<<<<<<<<<<DELETE ROUTE>>>>>>>>>>>>>>>
+// <<<<<<<<<<<<DELETE ROUTE 5>>>>>>>>>>>>>>>
 // =======================================
 app.delete('/cutecats/:id',(req,res) => {
   cats.splice(req.params.id,1);
@@ -42,7 +42,7 @@ app.delete('/cutecats/:id',(req,res) => {
 })
 
 // =======================================
-// <<<<<<<<<<<<EDIT ROUTE>>>>>>>>>>>>>>>
+// <<<<<<<<<<<<EDIT ROUTE  6>>>>>>>>>>>>>>>
 // =======================================
 app.get('/cutecats/:id/edit',(req,res) => {
   res.render('edit.ejs',
@@ -52,14 +52,31 @@ app.get('/cutecats/:id/edit',(req,res) => {
     }
   );
 });
+
 // =======================================
-// <<<<<<<<<<<<NEW ROUTE>>>>>>>>>>>>>>>
+// <<<<<<<<<<<<UPDATE ROUTE  7>>>>>>>>>>>>>>>
+// =======================================
+app.put('/cutecats/:id',(req,res) => {
+  if(req.body.shotsUpToDate === 'on'){
+    req.body.shotsUpToDate = true;
+  }else{
+    req.body.shotsUpToDate = false;
+  }
+  cats[req.params.id] = req.body;
+  res.redirect('/cutecats');
+})
+
+
+
+
+// =======================================
+// <<<<<<<<<<<<NEW ROUTE 3>>>>>>>>>>>>>>>
 // =======================================
 app.get('/cutecats/new',(req,res) => {
   res.render('new.ejs')
 })
 // =======================================
-// <<<<<<<<<<<<CREATE ROUTE>>>>>>>>>>>>>>>
+// <<<<<<<<<<<<CREATE ROUTE 4>>>>>>>>>>>>>>>
 // =======================================
 app.post('/cutecats',(req,res) => {
   if(req.body.shotsUpToDate === 'on'){
@@ -72,7 +89,7 @@ app.post('/cutecats',(req,res) => {
 })
 
 // =======================================
-// <<<<<<<<<<<<SHOW ROUTE>>>>>>>>>>>>>>>
+// <<<<<<<<<<<<SHOW ROUTE 2>>>>>>>>>>>>>>>
 // =======================================
 app.get('/cutecats/:id',(req,res) => {
   res.render('show.ejs',
