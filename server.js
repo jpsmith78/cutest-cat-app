@@ -11,8 +11,8 @@ const port = 3000;
 // <<<<<<<<<<<<MIDDLEWARE>>>>>>>>>>>>>>
 // =======================================
 app.use(express.urlencoded({extended:false}));
-app.use(express.static('public'));
 app.use(methodOverride('_method'));
+app.use(express.static('public'));
 // =======================================
 // <<<<<<<7 RESTFUL ROUTES>>>>>>>>>>>>>
 // =======================================
@@ -33,6 +33,14 @@ app.get('/cutecats',(req,res) => {
     allCats: cats
   });
 });
+// =======================================
+// <<<<<<<<<<<<DELETE ROUTE>>>>>>>>>>>>>>>
+// =======================================
+app.delete('/cutecats/:id',(req,res) => {
+  cats.splice(req.params.id,1);
+  res.redirect('/cutecats')
+})
+
 
 // =======================================
 // <<<<<<<<<<<<NEW ROUTE>>>>>>>>>>>>>>>

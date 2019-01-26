@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <link rel="stylesheet" href="/css/app.css">
     <meta charset="utf-8">
     <title></title>
   </head>
   <body>
     <h1>Your Selection</h1>
+    <a href="/cutecats/">Back</a>
     <h3>Cat name: <%= cat.name; %></h3>
     <h3>Favorite Food: <%= cat.favoriteFood; %></h3>
     <h3>Owner: <%= cat.owner %></h3>
@@ -14,6 +16,5 @@
       <%}else{%>
         <h3>Shots are not up to date</h3>
       <%}%>
-    <a href="/cutecats/">Back</a>
 </body>
 </html>
