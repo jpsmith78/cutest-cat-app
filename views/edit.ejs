@@ -7,5 +7,15 @@
   </head>
   <body>
     <h1>Edit Your Cat</h1>
+    <form>
+      Name:<input type="text" name="name" value="<%=cat.name%>"><br />
+      Favorite Food: <input type="text" name="favoriteFood" value="<%=cat.favoriteFood%>"><br />
+      Owner: <input type="text" name="owner" value="<%=cat.owner%>"><br />
+      Shots Up To Date: <input type="checkbox" name="shotsUpToDate"
+        <%if(cat.shotsUpToDate === true){%>
+          checked
+        <%}%>
+      >
+    </form>
   </body>
 </html>

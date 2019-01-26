@@ -6,15 +6,18 @@
     <title></title>
   </head>
   <body>
-    <h1>Cutest Cat</h1>
+    <header>
+      <h1>Cutest Cat</h1>
+      <nav>
+        <a href="/cutecats/new">Add New Cat</a>
+      </nav>
+    </header>
     <ul>
       <% for(let i =0; i < allCats.length; i++){%>
         <li>
           <a href="/cutecats/<%=i%>"><%=allCats[i].name%></a>
-          
         </li>
       <%}%>
     </ul>
-    <a href="/cutecats/new">Add New Cat</a>
   </body>
 </html>

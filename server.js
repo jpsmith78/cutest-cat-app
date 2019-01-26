@@ -45,12 +45,11 @@ app.delete('/cutecats/:id',(req,res) => {
 // <<<<<<<<<<<<EDIT ROUTE>>>>>>>>>>>>>>>
 // =======================================
 app.get('/cutecats/:id/edit',(req,res) => {
-  res.render('edit.ejs'
-  // ,
-  //   {
-  //     cat: cats[cats.params.id],
-  //     index: req.params.id
-  //   }
+  res.render('edit.ejs',
+    {
+      cat: cats[req.params.id],
+      index: req.params.id
+    }
   );
 });
 // =======================================
