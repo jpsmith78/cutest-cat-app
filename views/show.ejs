@@ -9,6 +9,11 @@
     <h3>Cat name: <%= cat.name; %></h3>
     <h3>Favorite Food: <%= cat.favoriteFood; %></h3>
     <h3>Owner: <%= cat.owner %></h3>
+    <%if(cat.shotsUpToDate === true){%>
+        <h3>Shots are up to date</h3>
+      <%}else{%>
+        <h3>Shots are not up to date</h3>
+      <%}%>
     <a href="/cutecats/">Back</a>
 </body>
 </html>

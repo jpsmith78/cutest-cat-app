@@ -11,15 +11,16 @@ const port = 3000;
 // <<<<<<<<<<<<MIDDLEWARE>>>>>>>>>>>>>>
 // =======================================
 app.use(express.urlencoded({extended:false}));
+app.use(express.static('public'));
 app.use(methodOverride('_method'));
 // =======================================
 // <<<<<<<7 RESTFUL ROUTES>>>>>>>>>>>>>
 // =======================================
-// URL	             HTTP Verb	   Action
-// /cats/	           GET	         index  X
-// /cats/new	       GET	         new    X
-// /cats	           POST	         create
-// /cats/:id	       GET	         show   X
+// URL	             HTTP Verb	   Action     Included
+// /cats/	           GET	         index      X
+// /cats/new	       GET	         new        X
+// /cats	           POST	         create     X
+// /cats/:id	       GET	         show       X
 // /cats/:id/edit	   GET	         edit
 // /cats/:id	       PATCH/PUT	   update
 // /cats/:id         DELETE	       destroy
@@ -43,8 +44,13 @@ app.get('/cutecats/new',(req,res) => {
 // <<<<<<<<<<<<CREATE ROUTE>>>>>>>>>>>>>>>
 // =======================================
 app.post('/cutecats',(req,res) => {
-  cats.push(req.body)
-  res.redirect('/cutecats')
+  if(req.body.shotsUpToDate === 'on'){
+    req.body.shotsUpToDate = true;
+  }else {
+    req.body.shotsUpToDate = false;
+  }
+  cats.push(req.body);
+  res.redirect('/cutecats');
 })
 
 // =======================================

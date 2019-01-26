@@ -4,17 +4,20 @@ const cats = [
   {
    name: 'Mittens',
    favoriteFood: 'Fancy Feast',
-   owner: 'Maude'
+   owner: 'Maude',
+   shotsUpToDate: true
   },
   {
     name: 'Rover',
     favoriteFood: 'Tender Vittles',
-    owner: 'Maude'
+    owner: 'Maude',
+    shotsUpToDate: true
   },
   {
     name: 'Charley',
     favoriteFood: 'Friskies',
-    owner: 'Jane'
+    owner: 'Jane',
+    shotsUpToDate: true
   }
 ];
 
