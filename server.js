@@ -23,7 +23,7 @@ app.use(express.static('public'));
 // /cats/:id	       GET	         show       X
 // /cats/:id/edit	   GET	         edit
 // /cats/:id	       PATCH/PUT	   update
-// /cats/:id         DELETE	       destroy
+// /cats/:id         DELETE	       destroy    X
 
 // =======================================
 // <<<<<<<<<<<<INDEX ROUTE>>>>>>>>>>>>>>>
@@ -41,7 +41,18 @@ app.delete('/cutecats/:id',(req,res) => {
   res.redirect('/cutecats')
 })
 
-
+// =======================================
+// <<<<<<<<<<<<EDIT ROUTE>>>>>>>>>>>>>>>
+// =======================================
+app.get('/cutecats/:id/edit',(req,res) => {
+  res.render('edit.ejs'
+  // ,
+  //   {
+  //     cat: cats[cats.params.id],
+  //     index: req.params.id
+  //   }
+  );
+});
 // =======================================
 // <<<<<<<<<<<<NEW ROUTE>>>>>>>>>>>>>>>
 // =======================================
@@ -67,8 +78,10 @@ app.post('/cutecats',(req,res) => {
 app.get('/cutecats/:id',(req,res) => {
   res.render('show.ejs',
   {
-    cat: cats[req.params.id]
-  });
+    cat: cats[req.params.id],
+    index: req.params.id
+  },
+);
 });
 
 
