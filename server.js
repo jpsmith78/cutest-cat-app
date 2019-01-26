@@ -3,24 +3,26 @@
 // =======================================
 const express = require('express')
 const app = express();
-const port = 3000;
+const methodOverride = require('method-override');
 const cats = require('./models/cats.js');
+const port = 3000;
 
 // =======================================
 // <<<<<<<<<<<<MIDDLEWARE>>>>>>>>>>>>>>
 // =======================================
-
+app.use(express.urlencoded({extended:false}));
+app.use(methodOverride('_method'));
 // =======================================
 // <<<<<<<7 RESTFUL ROUTES>>>>>>>>>>>>>
 // =======================================
-// URL	              HTTP Verb	   Action
-// /cats/	        GET	         index
-// /cats/new	      GET	         new
-// /cats	          POST	       create
-// /cats/:id	      GET	         show
-// /cats/:id/edit	GET	         edit
-// /cats/:id	      PATCH/PUT	   update
-// /cats/:id       DELETE	     destroy
+// URL	             HTTP Verb	   Action
+// /cats/	           GET	         index  X
+// /cats/new	       GET	         new    X
+// /cats	           POST	         create
+// /cats/:id	       GET	         show   X
+// /cats/:id/edit	   GET	         edit
+// /cats/:id	       PATCH/PUT	   update
+// /cats/:id         DELETE	       destroy
 
 // =======================================
 // <<<<<<<<<<<<INDEX ROUTE>>>>>>>>>>>>>>>
@@ -30,6 +32,20 @@ app.get('/cutecats',(req,res) => {
     allCats: cats
   });
 });
+
+// =======================================
+// <<<<<<<<<<<<NEW ROUTE>>>>>>>>>>>>>>>
+// =======================================
+app.get('/cutecats/new',(req,res) => {
+  res.render('new.ejs')
+})
+// =======================================
+// <<<<<<<<<<<<CREATE ROUTE>>>>>>>>>>>>>>>
+// =======================================
+app.post('/cutecats',(req,res) => {
+  cats.push(req.body)
+  res.redirect('/cutecats')
+})
 
 // =======================================
 // <<<<<<<<<<<<SHOW ROUTE>>>>>>>>>>>>>>>
