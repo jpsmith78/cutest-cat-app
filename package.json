@@ -1,6 +1,9 @@
 {
   "name": "cutest-cat-app",
   "version": "1.0.0",
+  "engines": {
+    "node": "11.3.0"
+  },
   "description": "Users can post pictures of their cats and vote for cutest cat",
   "main": "server.js",
   "scripts": {
