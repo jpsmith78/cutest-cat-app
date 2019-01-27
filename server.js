@@ -101,7 +101,7 @@ app.get('/cutecats/:id/edit',(req,res) => {
 });
 
 // =======================================
-// <<<<<<<<<<<<UPDATE ROUTE  7>>>>>>>>>>>>>>>
+// <<<<<<<<<<<<UPDATE ROUTE >>>>>>>>>>>>
 // =======================================
 app.put('/cutecats/:id',(req,res) => {
   if(req.body.shotsUpToDate === 'on'){
@@ -114,6 +114,25 @@ app.put('/cutecats/:id',(req,res) => {
     });
 });
 
+// =======================================
+// <<<<<<<<<<<<LIKES UPDATE ROUTE >>>>>>>>>>>>
+// =======================================
+app.put('/cutecats/like/:id', (req,res) => {
+  const upVote = parseInt(req.body.likes) + 1;
+  Cat.findByIdAndUpdate(req.params.id, {$set: {likes: upVote}},(err,data) => {
+    res.redirect('/cutecats/'+req.params.id);
+  });
+});
+
+// =======================================
+// <<<<<<<<<<<<DISLIKES UPDATE ROUTE >>>>>>>>>>>>
+// =======================================
+app.put('/cutecats/dislike/:id', (req,res) => {
+  const downVote = parseInt(req.body.likes) - 1;
+  Cat.findByIdAndUpdate(req.params.id, {$set: {likes: downVote}},(err,data) => {
+    res.redirect('/cutecats/'+req.params.id);
+  });
+});
 
 
 // =======================================

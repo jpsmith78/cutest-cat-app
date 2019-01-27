@@ -7,8 +7,8 @@ const catSchema = new mongoose.Schema({
   img: {type:String},
   owner: String,
   about: String,
-  likes: {type:Number, default:0},
-  shotsUpToDate: Boolean
+  shotsUpToDate: Boolean,
+  likes: {type:Number, default:0}
 })
 
 const Cat = mongoose.model('Cat',catSchema);
