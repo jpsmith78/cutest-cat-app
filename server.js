@@ -42,17 +42,7 @@ app.use(methodOverride('_method'));
 app.use(express.static('public'));
 app.use('/cutecats', catsController);
 
-// =======================================
-// <<<<<<<7 RESTFUL ROUTES>>>>>>>>>>>>>
-// =======================================
-// URL	             HTTP Verb	   Action     Included
-// /	           GET	         index      XX
-// /new	       GET	         new        XX
-// /	           POST	         create     XX
-// /:id	       GET	         show       XX
-// /:id/edit	   GET	         edit       XX
-// /:id	       PATCH/PUT	   update     XX
-// /:id         DELETE	       destroy    XX
+
 
 
 // =======================================
