@@ -31,7 +31,7 @@ db.on('disconnected', ()=> console.log('mongo disconnected'));
 // =======================================
 // <<<<<<OPEN CONNECTION TO MONGO>>>>>>
 // =======================================
-db.on('open',()=>{'/cutecats'});
+db.on('open',()=>{});
 
 // =======================================
 // <<<<<<<<<<<<MIDDLEWARE>>>>>>>>>>>>>>
@@ -40,8 +40,19 @@ app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 app.use(methodOverride('_method'));
 app.use(express.static('public'));
-app.use('/cutecats', catsController);
+app.use( catsController);
 
+// =======================================
+// <<<<<<<7 RESTFUL ROUTES>>>>>>>>>>>>>
+// =======================================
+// URL	             HTTP Verb	   Action     Included
+// /cats/	           GET	         index      XX
+// /cats/new	       GET	         new        XX
+// /cats	           POST	         create     XX
+// /cats/:id	       GET	         show       XX
+// /cats/:id/edit	   GET	         edit       XX
+// /cats/:id	       PATCH/PUT	   update     XX
+// /cats/:id         DELETE	       destroy    XX
 
 
 

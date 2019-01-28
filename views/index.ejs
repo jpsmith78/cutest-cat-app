@@ -7,7 +7,7 @@
     <header>
       <h1>Cutest Cat</h1>
       <nav>
-        <a href="/cutecats/new">Add New Cat</a>
+        <a href="/new">Add New Cat</a>
         <a href="#">Register</a>
         <a href="#">Log In</a>
       </nav>
@@ -16,7 +16,7 @@
       <% for(let i =0; i < allCats.length; i++){%>
         <li>
           <h3><%=allCats[i].name%></h3>
-          <a href="/cutecats/<%=allCats[i].id%>"><img src="<%=allCats[i].img%>" alt="<%=allCats[i].name%>" width="200px"></a>
+          <a href="/<%=allCats[i].id%>"><img src="<%=allCats[i].img%>" alt="<%=allCats[i].name%>" width="200px"></a>
           <h3>Likes: <%=allCats[i].likes%></h3>
         </li>
       <%}%>

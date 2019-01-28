@@ -5,10 +5,10 @@
   </head>
   <body>
     <h1>Edit Your Cat</h1>
-    <a href="/cutecats/">Home</a>
-    <a href="/cutecats/<%=index%>">Back</a>
+    <a href="/">Home</a>
+    <a href="/<%=index%>">Back</a>
 
-    <form action="/cutecats/<%=index%>?_method=PUT" method="POST">
+    <form action="/<%=index%>?_method=PUT" method="POST">
       Name:<input type="text" name="name" value="<%=cat.name%>"><br />
       Image: <input type="text" name="img" value="<%=cat.img%>"><br />
       Owner: <input type="text" name="owner" value="<%=cat.owner%>"><br />

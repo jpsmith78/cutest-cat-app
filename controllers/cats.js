@@ -53,7 +53,7 @@ router.get('/seed',(req,res) => {
       },
 
     ],(err,data) => {
-      res.redirect('/cutecats');
+      res.redirect('/');
   });
 });
 
@@ -73,7 +73,7 @@ router.get('/',(req,res) => {
 // =======================================
 router.delete('/:id',(req,res) => {
   Cat.findByIdAndRemove(req.params.id, (err, data) => {
-    res.redirect('/cutecats');
+    res.redirect('/');
   });
 });
 
@@ -100,7 +100,7 @@ router.put('/:id',(req,res) => {
     req.body.shotsUpToDate = false;
   }
   Cat.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
-        res.redirect('/cutecats');
+        res.redirect('/');
     });
 });
 
@@ -110,7 +110,7 @@ router.put('/:id',(req,res) => {
 router.put('/like/:id', (req,res) => {
   const upVote = parseInt(req.body.likes) + 1;
   Cat.findByIdAndUpdate(req.params.id, {$set: {likes: upVote}},(err,data) => {
-    res.redirect('/cutecats/'+req.params.id);
+    res.redirect('/'+req.params.id);
   });
 });
 
@@ -120,7 +120,7 @@ router.put('/like/:id', (req,res) => {
 router.put('/dislike/:id', (req,res) => {
   const downVote = parseInt(req.body.likes) - 1;
   Cat.findByIdAndUpdate(req.params.id, {$set: {likes: downVote}},(err,data) => {
-    res.redirect('/cutecats/'+req.params.id);
+    res.redirect('/'+req.params.id);
   });
 });
 
@@ -141,7 +141,7 @@ router.post('/',(req,res) => {
     req.body.shotsUpToDate = false;
   }
   Cat.create(req.body, (err,createdCat) => {
-    res.redirect('/cutecats');
+    res.redirect('/');
   });
 });
 
