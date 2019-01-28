@@ -1,12 +1,14 @@
 // =======================================
 // <<<<<<<<<<<<DEPENDENCIES>>>>>>>>>>>>>>>
 // =======================================
-const express = require('express')
-const mongoose = require('mongoose')
+const express = require('express');
+const session = require('express-session');
+const mongoose = require('mongoose');
 const app = express();
 const methodOverride = require('method-override');
-const catsController = require('./controllers/cats.js')
-const userController = require('./controllers/users.js')
+const catsController = require('./controllers/cats.js');
+const userController = require('./controllers/users.js');
+const sessionsController = require('./controllers/sessions.js');
 const db = mongoose.connection;
 // =======================================
 // <<<<<<<<<<<PORT>>>>>>>>>>>>>>
@@ -41,8 +43,18 @@ app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 app.use(methodOverride('_method'));
 app.use(express.static('public'));
+app.use(session({
+  secret: "marshmallow",
+  resave: false,
+  saveUninitialized: false
+}));
+
+
+
+
 app.use(catsController);
 app.use('/users', userController);
+app.use('/sessions', sessionsController);
 
 
 // =======================================
