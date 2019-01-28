@@ -1,5 +1,4 @@
 const express = require('express');
-const session = require('express-session');
 const router = express.Router();
 const Cat = require('../models/cats.js')
 
@@ -153,14 +152,13 @@ router.post('/',(req,res) => {
 // <<<<<<<<<<<<SHOW ROUTE >>>>>>>>>>>>>>>
 // =======================================
 router.get('/:id',(req,res) => {
-  Cat.findById(req.params.id, (err,foundCat) => {
-    res.render('show.ejs',
-    {
-      cat: foundCat,
-      index: req.params.id
-    },
-  )
-
+    Cat.findById(req.params.id, (err,foundCat) => {
+      res.render('show.ejs',
+      {
+        cat: foundCat,
+        index: req.params.id
+      },
+    )
   });
 });
 

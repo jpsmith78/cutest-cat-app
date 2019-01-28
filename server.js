@@ -41,16 +41,15 @@ db.on('open',()=>{});
 // =======================================
 // <<<<<<<<<<<<MIDDLEWARE>>>>>>>>>>>>>>
 // =======================================
+app.use(methodOverride('_method'));
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
-app.use(methodOverride('_method'));
 app.use(express.static('public'));
 app.use(session({
   secret: "marshmallow",
   resave: false,
   saveUninitialized: false
 }));
-
 
 
 
