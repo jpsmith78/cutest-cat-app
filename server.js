@@ -9,6 +9,8 @@ const methodOverride = require('method-override');
 const catsController = require('./controllers/cats.js');
 const userController = require('./controllers/users.js');
 const sessionsController = require('./controllers/sessions.js');
+
+
 const db = mongoose.connection;
 // =======================================
 // <<<<<<<<<<<PORT>>>>>>>>>>>>>>
@@ -55,6 +57,7 @@ app.use(session({
 app.use(catsController);
 app.use('/users', userController);
 app.use('/sessions', sessionsController);
+
 
 
 // =======================================

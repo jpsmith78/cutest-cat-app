@@ -1,4 +1,5 @@
 const express = require('express');
+const session = require('express-session');
 const router = express.Router();
 const Cat = require('../models/cats.js')
 
@@ -14,7 +15,6 @@ const Cat = require('../models/cats.js')
 // /:id/edit	  GET	         edit       XX
 // /:id	        PATCH/PUT	   update     XX
 // /:id         DELETE	     destroy    XX
-
 
 
 // =======================================
@@ -57,17 +57,21 @@ router.get('/seed',(req,res) => {
   });
 });
 
+
+
 // =======================================
 // <<<<<<<<<<<<INDEX ROUTE >>>>>>>>>>>>>>>
 // =======================================
 router.get('/',(req,res) => {
   Cat.find({},(err,cats) => {
     res.render('index.ejs',{
-      allCats: cats
+      allCats: cats,
+      currentUser: req.session.currentUser
     });
   });
-
 });
+
+
 // =======================================
 // <<<<<<<<<<<<DELETE ROUTE >>>>>>>>>>>>>>>
 // =======================================
