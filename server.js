@@ -31,7 +31,7 @@ db.on('disconnected', ()=> console.log('mongo disconnected'));
 // =======================================
 // <<<<<<OPEN CONNECTION TO MONGO>>>>>>
 // =======================================
-db.on('open',()=>{});
+db.on('open',()=>{'/cutecats'});
 
 // =======================================
 // <<<<<<<<<<<<MIDDLEWARE>>>>>>>>>>>>>>
