@@ -6,17 +6,16 @@
   <body>
     <h1>Your Selection</h1>
     <%include ./partials/nav.ejs%>
-    <h3>Cat name: <%=cat.name%></h3>
-    <img src="<%=cat.img%>" alt="<%=cat.name%>" width="400px" >
+    <h2> <%=cat.name%></h2>
+    <img src="<%=cat.img%>" alt="<%=cat.name%>" width="400px">
     <h3>Owner: <%=cat.owner%></h3>
-    <h3>About <%=cat.name%>: <%=cat.about%></h3>
-    <%if(cat.shotsUpToDate === true){%>
-        <h3>Shots are up to date</h3>
+    <h3>About: <%=cat.about%></h3>
+    <%if(cat.willScratch === true){%>
+        <h3><%=cat.name%> will scratch you!</h3>
       <%}else{%>
-        <h3>Shots are not up to date</h3>
+        <h3><%=cat.name%> won't scratch you!</h3>
       <%}%>
     <h3>Number of Likes: <%=cat.likes%></h3>
-
 
     <nav>
       <%if(currentUser){%>
@@ -29,14 +28,17 @@
         <input type="hidden" name="likes" value="<%=cat.likes%>">
         <input class="lower" type="submit" value="Dislike">
       </form>
-
+      <%} else {%>
+        <a href="/sessions/new">Log In To Like This Cat!</a>
+      <%}%>
+      <%if(currentUser.username === cat.owner){%>
       <form action="/cutecats/<%=index%>?_method=DELETE" method="POST">
         <input class="lower" type="submit" value="Delete">
       </form>
 
       <a class="lower" href="/cutecats/<%=index%>/edit">Edit</a>
       <%} else {%>
-        <a href="/sessions/new">Log In For More Content!</a>
+        <a href="/sessions/new">Log In To Edit Your Cat</a>
       <%}%>
     </nav>
 

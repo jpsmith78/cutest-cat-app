@@ -7,7 +7,7 @@ const catSchema = new mongoose.Schema({
   img: {type:String},
   owner: String,
   about: String,
-  shotsUpToDate: Boolean,
+  willScratch: Boolean,
   likes: {type:Number, default:0}
 })
 

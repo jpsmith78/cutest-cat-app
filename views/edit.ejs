@@ -14,8 +14,8 @@
       Image: <input type="text" name="img" value="<%=cat.img%>"><br />
       Owner: <input type="text" name="owner" value="<%=cat.owner%>"><br />
       About: <input type="text" name="about" value="<%=cat.about%>"><br />
-      Shots Up To Date: <input type="checkbox" name="shotsUpToDate"
-        <%if(cat.shotsUpToDate === true){%>
+      Will <%=cat.name%> Scatch?: <input type="checkbox" name="willScratch"
+        <%if(cat.willScratch === true){%>
           checked
         <%}%>
       ><br />

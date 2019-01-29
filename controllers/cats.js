@@ -97,10 +97,10 @@ router.get('/:id/edit',(req,res) => {
 // <<<<<<<<<<<<UPDATE ROUTE >>>>>>>>>>>>
 // =======================================
 router.put('/:id',(req,res) => {
-  if(req.body.shotsUpToDate === 'on'){
-    req.body.shotsUpToDate = true;
+  if(req.body.willScratch === 'on'){
+    req.body.willScratch = true;
   }else{
-    req.body.shotsUpToDate = false;
+    req.body.willScratch = false;
   }
   Cat.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
         res.redirect('/cutecats/');
@@ -142,10 +142,10 @@ router.get('/new',(req,res) => {
 // <<<<<<<<<<<<CREATE ROUTE>>>>>>>>>>>>>>>
 // =======================================
 router.post('/',(req,res) => {
-  if(req.body.shotsUpToDate === 'on'){
-    req.body.shotsUpToDate = true;
+  if(req.body.willScratch === 'on'){
+    req.body.willScratch = true;
   }else {
-    req.body.shotsUpToDate = false;
+    req.body.willScratch = false;
   }
   Cat.create(req.body, (err,createdCat) => {
     res.redirect('/cutecats/');
