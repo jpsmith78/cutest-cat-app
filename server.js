@@ -1,6 +1,7 @@
 // =======================================
 // <<<<<<<<<<<<DEPENDENCIES>>>>>>>>>>>>>>>
 // =======================================
+require('dotenv').config();
 const express = require('express');
 const session = require('express-session');
 const mongoose = require('mongoose');
@@ -46,7 +47,7 @@ app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 app.use(express.static('public'));
 app.use(session({
-  secret: "marshmallow",
+  secret: process.env.SECRET,
   resave: false,
   saveUninitialized: false
 }));
