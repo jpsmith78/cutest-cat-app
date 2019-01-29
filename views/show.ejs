@@ -25,28 +25,12 @@
         <input type="hidden" name="likes" value="<%=cat.likes%>">
         <input id="like" class="lower" type="submit" value="Like">
       </form>
-      <button onclick="disableLike()">disable likes</button>
-      <script type="text/javascript">
-        disableLike = ()=>{
-          document.getElementById('like').disabled = true;
-        }
-      </script>
+
       <form action="/cutecats/dislike/<%=index%>?_method=PUT" method="POST">
         <input type="hidden" name="likes" value="<%=cat.likes%>">
         <input id="dislike" class="lower" type="submit" value="Dislike">
       </form>
-      <button id="disableD" onclick="disableDis()">disable dislikes</button>
-      <script type="text/javascript">
-        disableDis = ()=>{
-          document.getElementById('dislike').disabled = true;
-        }
-        const dislikeButton = document.getElementById('dislike');
-        clickDis = ()=>{
-          dislikeButton.onclick = ()=>{
-            disableDis();
-          }
-        }
-      </script>
+
       <%} else {%>
         <a href="/sessions/new">Log In To Like This Cat!</a>
       <%}%>
