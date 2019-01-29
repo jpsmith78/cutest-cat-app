@@ -5,7 +5,9 @@
   </head>
   <body>
     <h1>Your Selection</h1>
-    <a href="/">Home</a>
+    <nav>
+      <a href="/cutecats/">Home</a>
+    </nav>
     <h3>Cat name: <%=cat.name%></h3>
     <img src="<%=cat.img%>" alt="<%=cat.name%>" width="400px" >
     <h3>Owner: <%=cat.owner%></h3>
@@ -16,17 +18,20 @@
         <h3>Shots are not up to date</h3>
       <%}%>
     <h3>Number of Likes: <%=cat.likes%></h3>
-    <form action="/like/<%=index%>?_method=PUT" method="POST">
-      <input type="hidden" name="likes" value="<%=cat.likes%>">
-      <input type="submit" value="Like">
-    </form>
-    <form action="/dislike/<%=index%>?_method=PUT" method="POST">
-      <input type="hidden" name="likes" value="<%=cat.likes%>">
-      <input type="submit" value="Dislike">
-    </form>
-    <form  action="/<%=index%>?_method=DELETE" method="POST">
-      <input type="submit" value="Delete">
-    </form>
-    <a href="/<%=index%>/edit">Edit</a>
+    <nav>
+      <form action="/cutecats/like/<%=index%>?_method=PUT" method="POST">
+        <input type="hidden" name="likes" value="<%=cat.likes%>">
+        <input class="lower" type="submit" value="Like">
+      </form>
+      <form action="/cutecats/dislike/<%=index%>?_method=PUT" method="POST">
+        <input type="hidden" name="likes" value="<%=cat.likes%>">
+        <input class="lower" type="submit" value="Dislike">
+      </form>
+      <form action="/cutecats/<%=index%>?_method=DELETE" method="POST">
+        <input class="lower" type="submit" value="Delete">
+      </form>
+      <a class="lower" href="/cutecats/<%=index%>/edit">Edit</a>
+    </nav>
+
 </body>
 </html>

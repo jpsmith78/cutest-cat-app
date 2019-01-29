@@ -1,4 +1,30 @@
 body {
   background: yellow;
   text-align: center;
+  font-family: 'Cabin', sans-serif;
+
+}
+nav {
+  display: flex;
+  border: 2px solid black;
+  justify-content: space-around;
+  align-items: center;
+  background: black;
+}
+li {
+  list-style: none;
+}
+nav > a, .lower {
+  background: black;
+  text-decoration: none;
+  margin: 20px;
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+  border: 2px solid white;
+  border-radius: 10px;
+}
+a:hover, .lower:hover {
+  background: white;
+  color: black;
 }

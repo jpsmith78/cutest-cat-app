@@ -51,11 +51,13 @@ app.use(session({
   saveUninitialized: false
 }));
 
+app.get('/',(req,res) => {
+  res.redirect('/cutecats')
+})
 
-
-app.use(catsController);
 app.use('/users', userController);
 app.use('/sessions', sessionsController);
+app.use('/cutecats',catsController);
 
 
 

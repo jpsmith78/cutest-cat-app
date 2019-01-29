@@ -24,35 +24,35 @@ router.get('/seed',(req,res) => {
     [
       {
         name: 'Buttons',
-        img: 'https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_1280.jpg',
+        img: 'https://i.imgur.com/oU3JMJ7.jpg',
         owner: 'Beth',
         about: 'Buttons is a cute little explorer',
         shotsUpToDate: true
       },
       {
         name: 'Buddy',
-        img: 'https://cdn.pixabay.com/photo/2017/11/09/21/41/cat-2934720_1280.jpg',
+        img: 'https://i.imgur.com/P76b46g.jpg',
         owner: 'Sam',
         about: 'Buddy is a scratcher!  Be careful!',
         shotsUpToDate: false
       },
       {
         name: 'Max',
-        img: 'https://cdn.pixabay.com/photo/2017/03/14/14/49/cat-2143332_1280.jpg',
+        img: 'https://i.imgur.com/hqLr0Xy.jpg',
         owner: 'Jeff',
         about: 'Max is a lazy guy!',
         shotsUpToDate: true
       },
       {
         name: 'Mittens',
-        img: 'https://cdn.pixabay.com/photo/2017/08/23/08/33/cats-eyes-2671903_1280.jpg',
+        img: 'https://i.imgur.com/iDnCDqs.jpg',
         owner: 'Sarah',
         about: 'Mittens loves to cuddle!',
         shotsUpToDate: true
       },
 
     ],(err,data) => {
-      res.redirect('/');
+      res.redirect('/cutecats/');
   });
 });
 
@@ -76,7 +76,7 @@ router.get('/',(req,res) => {
 // =======================================
 router.delete('/:id',(req,res) => {
   Cat.findByIdAndRemove(req.params.id, (err, data) => {
-    res.redirect('/');
+    res.redirect('/cutecats/');
   });
 });
 
@@ -103,7 +103,7 @@ router.put('/:id',(req,res) => {
     req.body.shotsUpToDate = false;
   }
   Cat.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
-        res.redirect('/');
+        res.redirect('/cutecats/');
     });
 });
 
@@ -113,7 +113,7 @@ router.put('/:id',(req,res) => {
 router.put('/like/:id', (req,res) => {
   const upVote = parseInt(req.body.likes) + 1;
   Cat.findByIdAndUpdate(req.params.id, {$set: {likes: upVote}},(err,data) => {
-    res.redirect('/'+req.params.id);
+    res.redirect('/cutecats/'+req.params.id);
   });
 });
 
@@ -123,7 +123,7 @@ router.put('/like/:id', (req,res) => {
 router.put('/dislike/:id', (req,res) => {
   const downVote = parseInt(req.body.likes) - 1;
   Cat.findByIdAndUpdate(req.params.id, {$set: {likes: downVote}},(err,data) => {
-    res.redirect('/'+req.params.id);
+    res.redirect('/cutecats/'+req.params.id);
   });
 });
 
@@ -144,7 +144,7 @@ router.post('/',(req,res) => {
     req.body.shotsUpToDate = false;
   }
   Cat.create(req.body, (err,createdCat) => {
-    res.redirect('/');
+    res.redirect('/cutecats/');
   });
 });
 
