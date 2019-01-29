@@ -2,6 +2,8 @@ body {
   background: yellow;
   text-align: center;
   font-family: 'Cabin', sans-serif;
+  margin: 0;
+  padding: 0;
 
 }
 nav {
@@ -10,11 +12,13 @@ nav {
   justify-content: space-around;
   align-items: center;
   background: black;
+  height: 100px;
+  width: 100%;
 }
 li {
   list-style: none;
 }
-nav > a, .lower {
+nav > a, nav > h3, .lower {
   background: black;
   text-decoration: none;
   margin: 20px;

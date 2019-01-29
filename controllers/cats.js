@@ -132,7 +132,11 @@ router.put('/dislike/:id', (req,res) => {
 // <<<<<<<<<<<<NEW ROUTE>>>>>>>>>>>>>>>
 // =======================================
 router.get('/new',(req,res) => {
-  res.render('new.ejs')
+  if(req.session.currentUser){
+    res.render('new.ejs')
+  }else {
+    res.redirect('/sessions/new')
+  }
 })
 // =======================================
 // <<<<<<<<<<<<CREATE ROUTE>>>>>>>>>>>>>>>
@@ -156,7 +160,8 @@ router.get('/:id',(req,res) => {
       res.render('show.ejs',
       {
         cat: foundCat,
-        index: req.params.id
+        index: req.params.id,
+        currentUser: req.session.currentUser
       },
     )
   });

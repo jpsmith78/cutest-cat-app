@@ -19,7 +19,9 @@
       <% } %>
       <h1>Cutest Cat</h1>
       <nav>
-        <a href="/cutecats/new">Add New Cat</a>
+        <%if(currentUser){%>
+          <a href="/cutecats/new">Add New Cat</a>
+        <%}%>
         <a href="/sessions/new">Log In</a>
         <a href="/users/new">Register</a>
       </nav>
