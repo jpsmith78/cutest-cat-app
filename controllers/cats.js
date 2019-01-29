@@ -112,7 +112,7 @@ router.put('/:id',(req,res) => {
 // =======================================
 router.put('/like/:id', (req,res) => {
   const upVote = parseInt(req.body.likes) + 1;
-  Cat.findByIdAndUpdate(req.params.id, {$set: {likes: upVote}},(err,data) => {
+  Cat.findByIdAndUpdate(req.params.id, {$set: {likes:upVote}},(err,data) => {
     res.redirect('/cutecats/'+req.params.id);
   });
 });
