@@ -103,7 +103,7 @@ router.put('/:id',(req,res) => {
     req.body.willScratch = false;
   }
   Cat.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
-        res.redirect('/cutecats/');
+        res.redirect('/cutecats/'+req.params.id);
     });
 });
 
