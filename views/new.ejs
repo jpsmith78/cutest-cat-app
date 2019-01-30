@@ -4,10 +4,12 @@
     <% include ./partials/head.ejs%>
   </head>
   <body>
-    <h1>New Cat</h1>
-    <nav>
-      <a href="/">Back</a>
-    </nav>
+    <header>
+      <h1>New Cat</h1>
+      <nav>
+        <a href="/">Back</a>
+      </nav>
+    </header>
     <form class="form" action="/cutecats" method="POST">
       Name: <input type="text" name="name"><br />
       Image: <input type="text" name="img"><br />

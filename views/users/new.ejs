@@ -4,8 +4,10 @@
     <% include ../partials/head.ejs%>
   </head>
   <body>
-    <h1>Create User</h1>
-    <% include ../partials/nav.ejs%>
+    <header>
+      <h1>Create User</h1>
+      <% include ../partials/nav.ejs%>
+    </header>
       <form class="form" action="/users" method="POST">
         <input type="text" name="username" placeholder="username"/><br />
         <input type="password" name="password" placeholder="password"/><br />

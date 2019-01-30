@@ -4,19 +4,22 @@
     <% include ./partials/head.ejs%>
   </head>
   <body>
-    <h1>Your Selection</h1>
-    <%include ./partials/nav.ejs%>
-    <h2> <%=cat.name%></h2>
-    <img src="<%=cat.img%>" alt="<%=cat.name%>" width="400px">
-    <h3>Owner: <%=cat.owner%></h3>
-    <h3>About: <%=cat.about%></h3>
-    <%if(cat.willScratch === true){%>
-        <h3><%=cat.name%> will scratch you!</h3>
-      <%}else{%>
-        <h3><%=cat.name%> won't scratch you!</h3>
-      <%}%>
-    <h3>Number of Likes: <%=cat.likes%></h3>
-
+    <header>
+      <h1>Your Selection</h1>
+      <%include ./partials/nav.ejs%>
+    </header>
+    <div class="show">
+      <h2> <%=cat.name%></h2>
+      <img class="showImg" src="<%=cat.img%>" alt="<%=cat.name%>" width="400px">
+      <h3>Owner: <%=cat.owner%></h3>
+      <h3>About: <%=cat.about%></h3>
+      <%if(cat.willScratch === true){%>
+          <h3><%=cat.name%> will scratch you!</h3>
+        <%}else{%>
+          <h3><%=cat.name%> won't scratch you!</h3>
+        <%}%>
+      <h3>Number of Likes: <%=cat.likes%></h3>
+    </div>
     <nav>
       <%if(currentUser){%>
       <form action="/cutecats/like/<%=index%>?_method=PUT" method="POST">
@@ -26,8 +29,9 @@
 
       <form action="/cutecats/dislike/<%=index%>?_method=PUT" method="POST">
         <input type="hidden" name="likes" value="<%=cat.likes%>">
-        <input id="dislike" class="lower" type="submit" value="Dislike">
+        <input id="dislike" class="lower" type="submit" value="Dislike" onclick="checked">
       </form>
+
 
       <%} else {%>
         <a href="/sessions/new">Log In To Like This Cat!</a>
@@ -43,9 +47,6 @@
           <a href="/sessions/new">Log In To Edit Your Cat</a>
         <%}%>
       <%}%>
-
-
     </nav>
-
 </body>
 </html>

@@ -4,11 +4,14 @@
     <% include ./partials/head.ejs%>
   </head>
   <body>
-    <h1>Edit Your Cat</h1>
-    <nav>
-      <a href="/cutecats">Home</a>
-      <a href="/cutecats/<%=index%>">Back</a>
-    </nav>
+    <header>
+      <h1>Edit Your Cat</h1>
+      <nav>
+        <a href="/cutecats">Home</a>
+        <a href="/cutecats/<%=index%>">Back</a>
+      </nav>
+    </header>
+
     <form class="form" action="/cutecats/<%=index%>?_method=PUT" method="POST">
       Name:<input type="text" name="name" value="<%=cat.name%>"><br />
       Image: <input type="text" name="img" value="<%=cat.img%>"><br />
@@ -19,7 +22,7 @@
           checked
         <%}%>
       ><br />
-      <input type="submit" value="Edit Cat">
+      <input class="submit" type="submit" value="Edit Cat">
     </form>
   </body>
 </html>
