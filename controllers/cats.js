@@ -142,6 +142,11 @@ router.get('/new',(req,res) => {
 // <<<<<<<<<<<<CREATE ROUTE>>>>>>>>>>>>>>>
 // =======================================
 router.post('/',(req,res) => {
+  if(req.body.img === ''){
+    req.body.img = 'https://i.imgur.com/S3ES29g.jpg'
+  }else {
+    req.body.img
+  }
   if(req.body.willScratch === 'on'){
     req.body.willScratch = true;
   }else {
