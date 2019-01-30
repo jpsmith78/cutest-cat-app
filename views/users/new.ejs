@@ -6,10 +6,10 @@
   <body>
     <h1>Create User</h1>
     <% include ../partials/nav.ejs%>
-      <form action="/users" method="POST">
+      <form class="form" action="/users" method="POST">
         <input type="text" name="username" placeholder="username"/><br />
-        <input type="password" name="password" /><br />
-        <input type="submit" value="Create User" />
+        <input type="password" name="password" placeholder="password"/><br />
+        <input class="submit" type="submit" value="Create User" />
       </form>
   </body>
 </html>

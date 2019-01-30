@@ -9,7 +9,7 @@
       <a href="/cutecats">Home</a>
       <a href="/cutecats/<%=index%>">Back</a>
     </nav>
-    <form action="/cutecats/<%=index%>?_method=PUT" method="POST">
+    <form class="form" action="/cutecats/<%=index%>?_method=PUT" method="POST">
       Name:<input type="text" name="name" value="<%=cat.name%>"><br />
       Image: <input type="text" name="img" value="<%=cat.img%>"><br />
       Owner: <input type="text" name="owner" value="<%=cat.owner%>"><br />

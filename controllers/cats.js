@@ -26,29 +26,29 @@ router.get('/seed',(req,res) => {
         name: 'Buttons',
         img: 'https://i.imgur.com/oU3JMJ7.jpg',
         owner: 'Beth',
-        about: 'Buttons is a cute little explorer',
-        shotsUpToDate: true
+        about: 'Buttons wants food!',
+        willScratch: false
       },
       {
         name: 'Buddy',
         img: 'https://i.imgur.com/P76b46g.jpg',
-        owner: 'Sam',
-        about: 'Buddy is a scratcher!  Be careful!',
-        shotsUpToDate: false
+        owner: 'Beth',
+        about: 'Buddy is a cute little explorer!',
+        willScratch: false
       },
       {
         name: 'Max',
-        img: 'https://i.imgur.com/hqLr0Xy.jpg',
-        owner: 'Jeff',
+        img: 'https://i.imgur.com/2GldUhD.jpg',
+        owner: 'Beth',
         about: 'Max is a lazy guy!',
-        shotsUpToDate: true
+        willScratch: false
       },
       {
-        name: 'Mittens',
-        img: 'https://i.imgur.com/iDnCDqs.jpg',
-        owner: 'Sarah',
-        about: 'Mittens loves to cuddle!',
-        shotsUpToDate: true
+        name: 'Grouchy',
+        img: 'https://i.imgur.com/wYMUfJH.jpg',
+        owner: 'Beth',
+        about: 'Grouchy hates you!',
+        willScratch: true
       },
 
     ],(err,data) => {
