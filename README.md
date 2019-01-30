@@ -1,10 +1,10 @@
 # cutest-cat-app
 Users can post pictures of their cats and vote for cutest cat
-##Link to Live App
-![cute cats app](https://cutecats.herokuapp.com/)
-##technologies used
+## Link to Live App
+[cute cats app](https://cutecats.herokuapp.com/)
+## technologies used
 Node.JS, Git, Heroku, Mongo, Mongoose, express, bcrypt, dotenv, method-override, ejs, JavaScript, HTML, CSS
-##approach taken
+## approach taken
 I first built my server.js page: set up express, mongoose, and ejs dependencies, mongo connection, listener and an index route.  I then created my views folder with index.ejs and show.ejs pages. I rendered these pages to my controllers.
 
 Once these worked, I created a models folder and added my cats.js model. I then required this in my sessions.js page's dependencies. Somewhere around here I added my public folder and added my css file along with static middleware.
@@ -22,12 +22,12 @@ After everything was connected, it was just a matter of getting options to appea
 
 Then the styling...
 
-##solved problems
+## solved problems
 I broke my app by putting my sessions and users controllers above my dynamic cats controller.
 
-##unsolved problems
+## unsolved problems
 I could not figure out how to get the like and dislike buttons to only work one time.
 
 Styling was fine for the most part, but I had a hard time getting styling onto my submit buttons for some reason.
-##notes
+## notes
 Definitely get the like buttons to only fire once per session in the future.
