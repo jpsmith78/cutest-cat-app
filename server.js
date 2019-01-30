@@ -16,12 +16,12 @@ const db = mongoose.connection;
 // =======================================
 // <<<<<<<<<<<PORT>>>>>>>>>>>>>>
 // =======================================
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT
 
 // =======================================
 // <<<<<<<<<<<<<<DATABASE>>>>>>>>>>
 // =======================================
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/catcrud';
+const MONGODB_URI = process.env.MONGODB_URI
 
 // =======================================
 // <<<<<<<CONNECT TO MONGO>>>>>>>>>>
