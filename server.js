@@ -16,12 +16,12 @@ const db = mongoose.connection;
 // =======================================
 // <<<<<<<<<<<PORT>>>>>>>>>>>>>>
 // =======================================
-const PORT = process.env.PORT
+const PORT = process.env.PORT;
 
 // =======================================
 // <<<<<<<<<<<<<<DATABASE>>>>>>>>>>
 // =======================================
-const MONGODB_URI = process.env.MONGODB_URI
+const MONGODB_URI = process.env.MONGODB_URI;
 
 // =======================================
 // <<<<<<<CONNECT TO MONGO>>>>>>>>>>
