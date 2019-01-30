@@ -1,5 +1,5 @@
 body {
-  background: yellow;
+  background: #dddddd;
   text-align: center;
   font-family: 'Cabin', sans-serif;
   margin: 0;
@@ -18,7 +18,7 @@ nav {
 li {
   list-style: none;
 }
-nav > a, nav > h3, .lower {
+nav > a, nav > h3, .lower, .logout{
   background: black;
   text-decoration: none;
   margin: 20px;
@@ -28,7 +28,37 @@ nav > a, nav > h3, .lower {
   border: 2px solid white;
   border-radius: 10px;
 }
-a:hover, .lower:hover {
+nav > a:hover, .lower:hover {
   background: white;
   color: black;
+}
+img {
+  border: 4px solid black;
+  border-radius: 10px;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  display: inline-flex;
+  margin: 20px;
+}
+.form {
+  display: flex;
+  height: 200px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin: 20px auto;
+}
+.form > input {
+  height: 20px;
+  font-size: 16px;
+  text-align: center;
 }

@@ -7,33 +7,37 @@
     <header>
       <h1>
         <% if(currentUser) { %>
-        Welcome <%=currentUser.username%>!
+        Hi <%=currentUser.username%>!
         <% } else { %>
-        Welcome!
+        Hi Stranger!
         <% } %>
       </h1>
-      <% if(currentUser) { %>
-        <form action="/sessions?_method=DELETE" method="POST">
-            <input type="submit" value="Logout"/>
-        </form>
-      <% } %>
-      <h1>Cutest Cat</h1>
+      <h1>Wecome to the Cutest Cat Page!</h1>
+      <h3>Register to Upload Pictures of Your Cat And Vote for Your Favorite Cats!</h3>
       <nav>
         <%if(currentUser){%>
           <a href="/cutecats/new">Add New Cat</a>
+          <form action="/sessions?_method=DELETE" method="POST">
+              <input class="logout" type="submit" value="Logout"/>
+          </form>
         <%}%>
         <a href="/sessions/new">Log In</a>
         <a href="/users/new">Register</a>
       </nav>
     </header>
-    <ul>
-      <% for(let i =0; i < allCats.length; i++){%>
-        <li>
-          <h3><%=allCats[i].name%></h3>
-          <a href="/cutecats/<%=allCats[i].id%>"><img src="<%=allCats[i].img%>" alt="<%=allCats[i].name%>" width="200px"></a>
-          <h3>Likes: <%=allCats[i].likes%></h3>
-        </li>
-      <%}%>
-    </ul>
+    <div class="container">
+      <ul>
+        <% for(let i =0; i < allCats.length; i++){%>
+          <div class="card">
+            <li>
+              <h3><%=allCats[i].name%></h3>
+              <a href="/cutecats/<%=allCats[i].id%>"><img src="<%=allCats[i].img%>" alt="<%=allCats[i].name%>" width="200px"></a>
+              <h3>Likes: <%=allCats[i].likes%></h3>
+            </li>
+          </div>
+        <%}%>
+      </div>
+      </ul>
+    </div>
   </body>
 </html>
