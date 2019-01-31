@@ -5,17 +5,19 @@
   </head>
   <body>
     <header>
-      <h1>
-        <% if(currentUser) { %>
-        Hi <%=currentUser.username%>!
-        <% } else { %>
-        Hi Stranger!
-        <% } %>
-      </h1>
-      <h1>Wecome to the Cutest Cat Page!</h1>
-      <h3>
-        Register to Upload Pictures of Your Cat And Vote for Your Favorite Cats!
-      </h3>
+      <div class="headContain">
+        <h1>
+          <% if(currentUser) { %>
+          Hi <%=currentUser.username%>!
+          <% } else { %>
+          Hi Stranger!
+          <% } %>
+        </h1>
+        <h1>Wecome to the Cutest Cat Page!</h1>
+        <h3>
+          Register to Upload Pictures of Your Cat And Vote for Your Favorite Cats!
+        </h3>
+      </div>
       <nav>
         <%if(currentUser){%>
           <a href="/cutecats/new">Add New Cat</a>
