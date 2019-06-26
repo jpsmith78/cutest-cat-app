@@ -28,7 +28,13 @@ I broke my app by putting my sessions and users controllers above my dynamic cat
 ## Unsolved problems
 I could not figure out how to get the like and dislike buttons to only work one time.
 
+Will change each one to a toggle for each user and show total of toggles for each cat.
+
 Styling was fine for the most part, but I had a hard time getting styling onto my submit buttons for some reason.
+
+Restyling to look like facebook page (catbook, facecat) and fix buttons.
+
+Will fix crash when user tries to log in with wrong user name
 ## Notes
 Many of the cats in this app are from friends and family.  The seed data is made up.
 
