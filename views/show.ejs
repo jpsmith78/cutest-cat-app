@@ -36,7 +36,7 @@
         <a href="/sessions/new">Log In To Like This Cat!</a>
       <%}%>
       <%if(currentUser){%>
-        <%if(currentUser.username == cat.owner){%>
+        <%if(currentUser._id == cat.ownerId){%>
         <form action="/cutecats/<%=index%>?_method=DELETE" method="POST">
           <input class="lower" type="submit" value="Delete">
         </form>

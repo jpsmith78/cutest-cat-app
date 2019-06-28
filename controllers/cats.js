@@ -3,58 +3,6 @@ const router = express.Router();
 const Cat = require('../models/cats.js')
 
 
-// =======================================
-// <<<<<<<7 RESTFUL ROUTES>>>>>>>>>>>>>
-// =======================================
-// URL	        HTTP Verb	   Action     Included
-// /	          GET	         index      XX
-// /new	        GET	         new        XX
-// /	          POST	       create     XX
-// /:id	        GET	         show       XX
-// /:id/edit	  GET	         edit       XX
-// /:id	        PATCH/PUT	   update     XX
-// /:id         DELETE	     destroy    XX
-
-
-// =======================================
-// <<<<<<<<<SEED ROUTE>>>>>>>>>>>>>
-// =======================================
-router.get('/seed',(req,res) => {
-  Cat.create(
-    [
-      {
-        name: 'Buttons',
-        img: 'https://i.imgur.com/oU3JMJ7.jpg',
-        owner: 'Beth',
-        about: 'Buttons wants food!',
-        willScratch: false
-      },
-      {
-        name: 'Buddy',
-        img: 'https://i.imgur.com/P76b46g.jpg',
-        owner: 'Beth',
-        about: 'Buddy is a cute little explorer!',
-        willScratch: false
-      },
-      {
-        name: 'Max',
-        img: 'https://i.imgur.com/2GldUhD.jpg',
-        owner: 'Beth',
-        about: 'Max is a lazy guy!',
-        willScratch: false
-      },
-      {
-        name: 'Grouchy',
-        img: 'https://i.imgur.com/wYMUfJH.jpg',
-        owner: 'Beth',
-        about: 'Grouchy hates you!',
-        willScratch: true
-      },
-
-    ],(err,data) => {
-      res.redirect('/cutecats/');
-  });
-});
 
 
 
@@ -142,6 +90,10 @@ router.get('/new',(req,res) => {
 // <<<<<<<<<<<<CREATE ROUTE>>>>>>>>>>>>>>>
 // =======================================
 router.post('/',(req,res) => {
+  if(req.session.currentUser){
+    req.body.owner = req.session.currentUser.username;
+    req.body.ownerId = req.session.currentUser._id
+  }
   if(req.body.img === ''){
     req.body.img = 'https://i.imgur.com/S3ES29g.jpg'
   }else {
