@@ -8,7 +8,7 @@
       <div class="headContain">
         <h1>
           <% if(currentUser) { %>
-          Hi <%=currentUser.username%>!
+          Hi <span class="capitalize"><%=currentUser.username%></span>!
           <% } else { %>
           Hi Stranger!
           <% } %>
@@ -25,7 +25,7 @@
               <input class="logout" type="submit" value="Logout"/>
           </form>
         <%}%>
-        <a href="/sessions/new">Log In</a>
+        <a  href="/sessions/new">Log In</a>
         <a href="/users/new">Register</a>
       </nav>
     </header>

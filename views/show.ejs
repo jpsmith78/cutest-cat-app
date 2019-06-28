@@ -27,11 +27,6 @@
         <input id="like" class="lower" type="submit" value="Like">
       </form>
 
-      <form action="/cutecats/dislike/<%=index%>?_method=PUT" method="POST">
-        <input type="hidden" name="likes" value="<%=cat.likes%>">
-        <input id="dislike" class="lower" type="submit" value="Dislike">
-      </form>
-
       <%} else {%>
         <a href="/sessions/new">Log In To Like This Cat!</a>
       <%}%>

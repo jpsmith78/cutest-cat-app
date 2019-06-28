@@ -54,26 +54,27 @@ router.put('/:id',(req,res) => {
         res.redirect('/cutecats/'+req.params.id);
     });
 });
-
+let like = false;
 // =======================================
 // <<<<<<<<<<<<LIKES UPDATE ROUTE >>>>>>>>>>>>
 // =======================================
 router.put('/like/:id', (req,res) => {
-  const upVote = parseInt(req.body.likes) + 1;
+
+  let upVote = parseInt(req.body.likes)
+  const toggleLike = () => {
+    like = !like;
+    return;
+  }
+  toggleLike();
+  console.log(like);
+  if (like === true) {
+    upVote +=1
+  }
   Cat.findByIdAndUpdate(req.params.id, {$set: {likes:upVote}},(err,data) => {
     res.redirect('/cutecats/'+req.params.id);
   });
 });
 
-// =======================================
-// <<<<<<<<<<<<DISLIKES UPDATE ROUTE >>>>>>>>>>>>
-// =======================================
-router.put('/dislike/:id', (req,res) => {
-  const downVote = parseInt(req.body.likes) - 1;
-  Cat.findByIdAndUpdate(req.params.id, {$set: {likes: downVote}},(err,data) => {
-    res.redirect('/cutecats/'+req.params.id);
-  });
-});
 
 
 // =======================================
@@ -113,6 +114,7 @@ router.post('/',(req,res) => {
 // <<<<<<<<<<<<SHOW ROUTE >>>>>>>>>>>>>>>
 // =======================================
 router.get('/:id',(req,res) => {
+
     Cat.findById(req.params.id, (err,foundCat) => {
       res.render('show.ejs',
       {
