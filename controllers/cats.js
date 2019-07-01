@@ -54,7 +54,7 @@ router.put('/:id',(req,res) => {
         res.redirect('/cutecats/'+req.params.id);
     });
 });
-let like = false;
+
 // =======================================
 // <<<<<<<<<<<<LIKES UPDATE ROUTE >>>>>>>>>>>>
 // =======================================
@@ -62,13 +62,14 @@ router.put('/like/:id', (req,res) => {
 
   let upVote = parseInt(req.body.likes)
   const toggleLike = () => {
-    like = !like;
-    return;
+    req.session.like.toggle = !req.session.like.toggle;
   }
+  console.log(req.session.like);
   toggleLike();
-  console.log(like);
-  if (like === true) {
+  if (req.session.like.toggle === true) {
     upVote +=1
+  }else{
+    upVote -=1
   }
   Cat.findByIdAndUpdate(req.params.id, {$set: {likes:upVote}},(err,data) => {
     res.redirect('/cutecats/'+req.params.id);

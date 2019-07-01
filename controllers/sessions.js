@@ -15,7 +15,10 @@ router.post('/',(req,res) => {
     if (foundUser) {
       if(bcrypt.compareSync(req.body.password, foundUser.password)){
         req.session.currentUser = foundUser;
+        req.session.like = {currentId: foundUser._id, toggle: false};
         res.redirect('/');
+
+
       }else{
         res.send('<a href="/">Login Failed</a>');
       }
