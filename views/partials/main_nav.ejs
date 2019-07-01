@@ -1,0 +1,15 @@
+<nav>
+
+  <button><a href="/cutecats/">Home</a></button>
+  <% if(!currentUser){ %>
+    <button><a href="/sessions/new">Log In</a></button>
+    <button><a href="/users/new">Register</a></button>
+  <% } %>
+  <% if(currentUser){ %>
+    <button><a href="/cutecats/new">Create Post</a></button>
+    <form action="/sessions?_method=DELETE" method="POST">
+        <button type="submit">Log Out</button>
+    </form>
+  <% } %>
+
+</nav>

@@ -64,7 +64,6 @@ router.put('/like/:id', (req,res) => {
   const toggleLike = () => {
     req.session.like.toggle = !req.session.like.toggle;
   }
-  console.log(req.session.like);
   toggleLike();
   if (req.session.like.toggle === true) {
     upVote +=1

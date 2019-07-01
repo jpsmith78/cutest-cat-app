@@ -1,47 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <% include ./partials/head.ejs%>
+    <% include ./partials/head.ejs %>
   </head>
   <body>
     <header>
-      <div class="headContain">
-        <h1>
-          <% if(currentUser) { %>
-          Hi <span class="capitalize"><%=currentUser.username%></span>!
-          <% } else { %>
-          Hi Stranger!
-          <% } %>
-        </h1>
-        <h1>Wecome to the Cutest Cat Page!</h1>
-        <h3>
-          Register to upload pictures of your cat and vote for your favorite cats!
-        </h3>
-      </div>
-      <nav>
-        <%if(currentUser){%>
-          <a href="/cutecats/new">Add New Cat</a>
-          <form action="/sessions?_method=DELETE" method="POST">
-              <input class="logout" type="submit" value="Logout"/>
-          </form>
-        <%}%>
-        <a  href="/sessions/new">Log In</a>
-        <a href="/users/new">Register</a>
-      </nav>
+      <% include ./partials/header.ejs %>
+      <% include ./partials/main_nav.ejs %>
     </header>
-    <div class="container">
-      <ul>
+
+    <div>
+
         <% for(let i =0; i < allCats.length; i++){%>
-          <div class="card">
-            <li>
+          <div>
               <h3><%=allCats[i].name%></h3>
               <a href="/cutecats/<%=allCats[i].id%>"><img src="<%=allCats[i].img%>" alt="<%=allCats[i].name%>" width="200px"></a>
               <h3>Likes: <%=allCats[i].likes%></h3>
-            </li>
           </div>
         <%}%>
-      </ul>
+
     </div>
+
+    <% include ./partials/footer.ejs %>
 
   </body>
 </html>

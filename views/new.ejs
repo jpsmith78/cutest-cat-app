@@ -5,11 +5,10 @@
   </head>
   <body>
     <header>
-      <h1>New Cat</h1>
-      <nav>
-        <a href="/">Back</a>
-      </nav>
+      <% include ./partials/header.ejs %>
+      <% include ./partials/new_nav.ejs %>
     </header>
+    <h2>Create New Post</h2>
     <form class="form" action="/cutecats" method="POST">
       Name: <input type="text" name="name"><br />
       Image: <input type="text" name="img"><br />
@@ -17,5 +16,8 @@
       Will They Scratch?:<input type="checkbox" name="willScratch"><br />
       <input class="submit" type="submit" value="Add Cat">
     </form>
+    
+    <% include ./partials/footer.ejs %>
+
   </body>
 </html>

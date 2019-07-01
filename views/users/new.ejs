@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <% include ../partials/head.ejs%>
+    <% include ../partials/head.ejs %>
   </head>
   <body>
     <header>
-      <h1>Create User</h1>
-      <% include ../partials/nav.ejs%>
+
+      <% include ../partials/header.ejs %>
+      <% include ../partials/nav.ejs %>
+
     </header>
-      <form class="form" action="/users" method="POST">
+
+    <h2>New User Registration</h2>
+
+      <form action="/users" method="POST">
         <input type="text" name="username" placeholder="username"/><br />
         <input type="password" name="password" placeholder="password"/><br />
-        <input class="submit" type="submit" value="Create User" />
+        <button type="submit">Create User</button>
       </form>
+
+      <% include ../partials/footer.ejs %>
+
   </body>
 </html>

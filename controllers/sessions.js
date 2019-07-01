@@ -18,12 +18,12 @@ router.post('/',(req,res) => {
         req.session.like = {currentId: foundUser._id, toggle: false};
         res.redirect('/');
 
-
-      }else{
-        res.send('<a href="/">Login Failed</a>');
+      } else {
+        res.render('sessions/login_fail.ejs');
       }
     } else {
-      res.send('<a href="/">Login Failed</a>')
+      res.render('sessions/login_fail.ejs');
+
     }
 
   });

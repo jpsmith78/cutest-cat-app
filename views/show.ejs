@@ -6,7 +6,7 @@
   <body>
     <header>
       <h1>Your Selection</h1>
-      <%include ./partials/nav.ejs%>
+      <%include ./partials/main_nav.ejs%>
     </header>
     <div class="show">
       <h2> <%=cat.name%></h2>
@@ -24,24 +24,27 @@
       <%if(currentUser){%>
       <form action="/cutecats/like/<%=index%>?_method=PUT" method="POST">
         <input type="hidden" name="likes" value="<%=cat.likes%>">
-        <input id="like" class="lower" type="submit" value="Like">
+        <button type="submit" class="fas fa-thumbs-up">Like</button>
       </form>
 
-      
+
       <%} else {%>
         <a href="/sessions/new">Log In To Like This Cat!</a>
       <%}%>
       <%if(currentUser){%>
         <%if(currentUser._id == cat.ownerId){%>
         <form action="/cutecats/<%=index%>?_method=DELETE" method="POST">
-          <input class="lower" type="submit" value="Delete">
+          <input type="submit" value="Delete">
         </form>
 
-        <a class="lower" href="/cutecats/<%=index%>/edit">Edit</a>
+        <a href="/cutecats/<%=index%>/edit">Edit</a>
         <%} else {%>
           <a href="/sessions/new">Log In To Edit Your Cat</a>
         <%}%>
       <%}%>
     </nav>
+
+    <% include ./partials/footer.ejs %>
+
 </body>
 </html>
