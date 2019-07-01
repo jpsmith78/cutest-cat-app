@@ -10,15 +10,24 @@
       <% include ../partials/nav.ejs %>
     </header>
 
-    <div>
-      <h2>User Log In</h2>
+    <div class="main">
+
+      <div>
+        <h2>User Log In</h2>
+      </div>
+
+      <form action="/sessions" method="POST">
+        <input type="text" name="username" placeholder="username"><br />
+        <input type="password" name="password" placeholder="password"><br />
+        <button type="submit">Log In</button>
+      </form>
+      
     </div>
-    
-    <form action="/sessions" method="POST">
-      <input type="text" name="username" placeholder="username"><br />
-      <input type="password" name="password" placeholder="password"><br />
-      <button type="submit">Log In</button>
-    </form>
+
+
+
+
+
 
     <% include ../partials/footer.ejs %>
 

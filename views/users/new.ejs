@@ -11,13 +11,18 @@
 
     </header>
 
-    <h2>New User Registration</h2>
+    <div class="main">
 
-      <form action="/users" method="POST">
-        <input type="text" name="username" placeholder="username"/><br />
-        <input type="password" name="password" placeholder="password"/><br />
-        <button type="submit">Create User</button>
-      </form>
+      <h2>New User Registration</h2>
+
+        <form action="/users" method="POST">
+          <input type="text" name="username" placeholder="username"/><br />
+          <input type="password" name="password" placeholder="password"/><br />
+          <button type="submit">Create User</button>
+        </form>
+        
+    </div>
+
 
       <% include ../partials/footer.ejs %>
 
