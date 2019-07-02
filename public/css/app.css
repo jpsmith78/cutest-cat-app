@@ -7,7 +7,6 @@
 }
 *{
   font-family: 'Roboto', sans-serif;
-  /* border: 1px solid gold; */
 }
 body {
   text-align: center;
@@ -58,20 +57,17 @@ header {
   width: 100%;
 }
 .header {
-  width: 400px;
+  width: 500px;
   display: flex;
-  justify-content: flex-start;
-  align-items: baseline;
+  justify-content: space-around;
+  align-items: center;
   padding: 5px 20px;
 }
-.header > h3 {
-  margin-left: 5%;
-}
 nav {
-  width: 400px;
+  width: 500px;
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
+  align-items: center ;
+  justify-content: space-around;
   padding: 5px 20px;
 }
 .sub_header {
@@ -88,28 +84,71 @@ main {
 main > h2, main > h3 {
   color: var(--dark_blue);
   margin: 50px auto;
+  padding: 10px;
 }
+/* ============================
+<<<<<<<<<INDEX>>>>>>>>>>>>
+============================= */
+.tile_container {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 700px;
+  overflow-y: scroll;
+}
+.cat_tile {
+  margin: 4%;
+  background: var(--dark_blue);
+  color: var(--white);
+  border: 2px solid var(--off_white);
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px black;
+  height: 300px;
+  width: 300px;
+}
+.cat_image {
+  border: 2px solid var(--white);
+  border-radius: 5px;
+}
+/* ============================
+<<<<<<<<<<SHOW>>>>>>>>>>>>>
+============================= */
 .cat_show {
-  width: 500px;
+  width: 40%;
   margin: 50px auto;
   background: var(--mid_blue);
   color: var(--white);
   padding: 10px 0;
-  border: 2px solid var(--off_white);
   border-radius: 5px;
   box-shadow: 2px 2px 2px var(--dark_blue);
-
 }
 .cat_show_header {
   margin-top: 0;
   margin-bottom: 0;
   padding: 30px;
-
 }
 .cat_show_img {
-  width: 100%;
+  width: 95%;
+  border: 1px solid: var(--dark_blue);
+  border-radius: 4px;
+  margin: 10px auto;
+}
+.cat_description {
+  padding: 6px;
+  width: 90%;
+  height: 100px;
+  overflow-y: scroll;
+  background: var(--off_white);
+  color: var(--mid_blue);
+  border: 1px solid: var(--dark_blue);
+  border-radius: 4px;
+  margin: 10px auto;
 }
 .show_nav {
+  width: 80%;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -119,11 +158,12 @@ main > h2, main > h3 {
 .form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  width: 600px;
-  margin: 10% auto;
-  padding: 10px;
+  width: 60%;
+  margin: 5% auto;
+  padding: 50px 10px;
+  height: 450px;
 }
 .form > input, .form > textarea {
   margin: 5px;
@@ -145,13 +185,14 @@ input[type=checkbox]{
 ============================= */
 footer {
   position: relative;
-  margin-top: 80%;
+  margin-top: 50px;
   width: 100%;
   background: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  padding-top: 10px;
 
 }
 footer > ul {
@@ -191,5 +232,8 @@ button:hover, a:hover {
   }
   footer > ul {
     margin: 0;
+  }
+  .cat_show {
+    width: 60%;
   }
 }
