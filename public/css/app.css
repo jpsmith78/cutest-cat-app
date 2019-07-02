@@ -11,7 +11,6 @@ body {
   margin: 0;
   padding: 0;
   background: var(--light_blue);
-
 }
 .fas{
   margin: auto;
@@ -24,9 +23,29 @@ body {
   color: var(--dark_blue);
   background: var(--light_blue);
 }
+button {
+  padding: 10px;
+  border-radius: 5px;
+  border-style: none;
+  background: var(--dark_blue);
+  margin: 0 10px;
+  color: var(--white);
+  font-size: 14px;
+  font-weight: bold;
+}
+a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+}
+
 .capitalize {
   text-transform: capitalize;
 }
+/* ============================
+<<<<<<<<<<HEADER>>>>>>>>>>>>>
+============================= */
 header {
   display: flex;
   justify-content: space-between;
@@ -53,23 +72,18 @@ nav {
   justify-content: flex-end;
   padding: 5px 20px;
 }
-button, a {
-  border-style: none;
-  color: var(--white);
-  text-decoration: none;
-  background: var(--dark_blue);
-  font-size: 14px;
-  font-weight: bold;
-  margin: 0 5px;
+/* ============================
+<<<<<<<<<<MAIN>>>>>>>>>>>>>
+============================= */
+main {
+  margin: 10%;
 }
-.main {
-  height: 700px;
-}
+/* ============================
+<<<<<<<<<<FOOTER>>>>>>>>>>>>>
+============================= */
 footer {
   position: relative;
-  right: 0;
-  left: 0;
-  bottom: 0;
+  margin-top: 80%;
   width: 100%;
   background: var(--white);
   display: flex;
@@ -82,11 +96,38 @@ footer > ul {
   list-style: none;
   margin: 10px 30px;
 }
-footer > ul > li > a, footer > h5 {
+.footer_text{
   background: var(--white);
   color: var(--mid_blue);
+  font-size: 14px;
+  font-weight: bold;
+  padding: 3px;
+  border-radius: 3px;
+}
+footer > ul > li {
+  text-align: left;
+  margin-bottom: 6px;
 }
 footer > h5 {
   width: 100%;
   margin: 5px auto;
+}
+/* ============================
+<<<<<<<<<<ACTIONS>>>>>>>>>>>>
+============================= */
+button:hover, a:hover {
+  background: var(--mid_blue);
+  color: var(--white);
+  cursor: pointer;
+}
+/* ============================
+<<<<<<<MEDIA QUERIES>>>>>>>
+============================= */
+@media (max-width: 600px){
+  .footer_text {
+    font-size: 10px;
+  }
+  footer > ul {
+    margin: 0;
+  }
 }

@@ -8,7 +8,10 @@
       <% include ./partials/header.ejs %>
       <% include ./partials/show_nav.ejs %>
     </header>
-    <div class="main">
+    
+    <main>
+
+      <h2>Edit Post</h2>
 
       <form class="form" action="/cutecats/<%=index%>?_method=PUT" method="POST">
         Name:<input type="text" name="name" value="<%=cat.name%>"><br />
@@ -20,12 +23,10 @@
             checked
           <%}%>
         ><br />
-        <input class="submit" type="submit" value="Edit Cat">
+        <button type="submit">Edit Post</button>
       </form>
-      
-    </div>
-    <h2>Edit Post</h2>
 
+  </main>
 
     <% include ./partials/footer.ejs %>
 

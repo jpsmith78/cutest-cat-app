@@ -18,6 +18,9 @@ router.get('/',(req,res) => {
   });
 });
 
+router.get('/hipster', (req,res) => {
+  res.render('hipster.ejs')
+})
 
 // =======================================
 // <<<<<<<<<<<<DELETE ROUTE >>>>>>>>>>>>>>>
