@@ -69,9 +69,9 @@ router.put('/like/:id', (req,res) => {
   }
   toggleLike();
   if (req.session.like.toggle === true) {
-    upVote +=1
+    upVote +=1;
   }else{
-    upVote -=1
+    upVote -=1;
   }
   Cat.findByIdAndUpdate(req.params.id, {$set: {likes:upVote}},(err,data) => {
     res.redirect('/cutecats/'+req.params.id);
@@ -102,6 +102,11 @@ router.post('/',(req,res) => {
     req.body.img = 'https://i.imgur.com/S3ES29g.jpg'
   }else {
     req.body.img
+  }
+  if (req.body.about === '') {
+    req.body.about = 'No description available.'
+  }else{
+    req.body.about
   }
   if(req.body.willScratch === 'on'){
     req.body.willScratch = true;

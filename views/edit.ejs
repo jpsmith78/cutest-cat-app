@@ -8,17 +8,16 @@
       <% include ./partials/header.ejs %>
       <% include ./partials/show_nav.ejs %>
     </header>
-    
+
     <main>
 
       <h2>Edit Post</h2>
 
       <form class="form" action="/cutecats/<%=index%>?_method=PUT" method="POST">
-        Name:<input type="text" name="name" value="<%=cat.name%>"><br />
-        Image: <input type="text" name="img" value="<%=cat.img%>"><br />
-        Owner: <input type="text" name="owner" value="<%=cat.owner%>"><br />
-        About: <input type="text" name="about" value="<%=cat.about%>"><br />
-        Will <%=cat.name%> Scatch?: <input type="checkbox" name="willScratch"
+        <label>Edit Name</label><br/><input type="text" name="name" value="<%=cat.name%>"><br />
+        <label>Edit Image</label><br/><input type="text" name="img" value="<%=cat.img%>"><br />
+        <label>Edit Description</label><br/><textarea name="about" value="<%=cat.about%>"></textarea><br />
+        <label>Will <%=cat.name%> Scatch?</label><input type="checkbox" name="willScratch"
           <%if(cat.willScratch === true){%>
             checked
           <%}%>

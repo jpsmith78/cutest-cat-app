@@ -7,17 +7,20 @@
     <header>
       <% include ./partials/header.ejs %>
       <% include ./partials/main_nav.ejs %>
+      <% if(currentUser){ %>
+        <% include ./partials/sub_header.ejs %>
+      <%}%>
     </header>
 
     <main>
 
-        <% for(let i =0; i < allCats.length; i++){%>
-          <div>
-              <h3><%=allCats[i].name%></h3>
-              <a href="/cutecats/<%=allCats[i].id%>"><img src="<%=allCats[i].img%>" alt="<%=allCats[i].name%>" width="200px"></a>
-              <h3>Likes: <%=allCats[i].likes%></h3>
-          </div>
-        <%}%>
+      <% for(let i =0; i < allCats.length; i++){%>
+        <div class="cat_tile">
+            <h3><%=allCats[i].name%></h3>
+            <a href="/cutecats/<%=allCats[i].id%>"><img src="<%=allCats[i].img%>" alt="<%=allCats[i].name%>" width="200px"></a>
+            <h3><i class="fas fa-thumbs-up"></i> <%=allCats[i].likes%></h3>
+        </div>
+      <%}%>
 
     </main>
 

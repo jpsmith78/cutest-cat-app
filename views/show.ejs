@@ -5,44 +5,54 @@
   </head>
   <body>
     <header>
-      <h1>Your Selection</h1>
+      <% include ./partials/header.ejs %>
       <%include ./partials/main_nav.ejs%>
-    </header>
-    <main>
-      <h2> <%=cat.name%></h2>
-      <img class="showImg" src="<%=cat.img%>" alt="<%=cat.name%>" width="400px">
-      <h3>Owner: <%=cat.owner%></h3>
-      <h3>About: <%=cat.about%></h3>
-      <%if(cat.willScratch === true){%>
-          <h3><%=cat.name%> will scratch you!</h3>
-        <%}else{%>
-          <h3><%=cat.name%> won't scratch you!</h3>
-        <%}%>
-      <h3>Number of Likes: <%=cat.likes%></h3>
-    </main>
-    <nav>
-      <%if(currentUser){%>
-      <form action="/cutecats/like/<%=index%>?_method=PUT" method="POST">
-        <input type="hidden" name="likes" value="<%=cat.likes%>">
-        <button type="submit" class="fas fa-thumbs-up">Like</button>
-      </form>
-
-
-      <%} else {%>
-        <button><a href="/sessions/new">Log In To Like This Cat!</a></button>
+      <% if(currentUser){ %>
+        <% include ./partials/sub_header.ejs %>
       <%}%>
-      <%if(currentUser){%>
-        <%if(currentUser._id == cat.ownerId){%>
-        <form action="/cutecats/<%=index%>?_method=DELETE" method="POST">
-          <button type="submit">Delete</button>
+    </header>
+
+    <main>
+
+      <div class="cat_show">
+        <h2 class="cat_show_header capitalize">Meet <%=cat.owner%>'s cat, <%=cat.name%></h2>
+        <img class="cat_show_img" src="<%=cat.img%>" alt="<%=cat.name%>" width="400px">
+        <h3 class="cat_description"><%=cat.about%></h3>
+        <%if(cat.willScratch === true){%>
+            <h3>P.S. <span class="capitalize"><%=cat.name%></span> will scratch you!</h3>
+          <%}else{%>
+            <h3>P.S. <span class="capitalize"><%=cat.name%></span> won't scratch you!</h3>
+          <%}%>
+        <h3><i class="fas fa-thumbs-up"></i>  <%=cat.likes%></h3>
+      </div>
+
+      <nav class="show_nav">
+
+        <%if(currentUser){%>
+        <form action="/cutecats/like/<%=index%>?_method=PUT" method="POST">
+          <input type="hidden" name="likes" value="<%=cat.likes%>">
+          <button id="like_button" type="submit" class="far fa-thumbs-up"><span>Like</span></button>
         </form>
 
-        <button><a href="/cutecats/<%=index%>/edit">Edit</a></button>
+
         <%} else {%>
-          <button><a href="/sessions/new">Log In To Edit Your Cat</a></button>
+          <button><a href="/sessions/new">Log In To Like</a></button>
         <%}%>
-      <%}%>
-    </nav>
+        <%if(currentUser){%>
+          <%if(currentUser._id == cat.ownerId){%>
+          <form action="/cutecats/<%=index%>?_method=DELETE" method="POST">
+            <button type="submit">Delete</button>
+          </form>
+
+          <button><a href="/cutecats/<%=index%>/edit">Edit</a></button>
+          <%} else {%>
+            <button><a href="/sessions/new">Log In To Edit</a></button>
+          <%}%>
+        <%}%>
+
+      </nav>
+
+    </main>
 
     <% include ./partials/footer.ejs %>
 
