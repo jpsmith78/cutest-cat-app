@@ -10,10 +10,18 @@ router.get('/new', (req,res) => {
 })
 
 router.post('/',(req,res) => {
-   req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
-   User.create(req.body, (err, createdUser) => {
-     res.redirect('/');
-   });
+  if (req.body.password) {
+    req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
+    User.create(req.body, (err, createdUser) => {
+      if (err) {
+          res.render('users/duplicate_user.ejs')
+      }else if (createdUser){
+        res.redirect('/');
+      }
+    });
+  }else {
+    res.render('users/empty_password.ejs')
+  }
 });
 
 
