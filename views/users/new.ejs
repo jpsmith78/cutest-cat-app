@@ -7,19 +7,25 @@
     <header>
 
       <% include ../partials/header.ejs %>
-      <% include ../partials/nav.ejs %>
-
+      <% include ../partials/main_nav.ejs %>
+      <% if(currentUser){ %>
+        <% include ../partials/sub_header.ejs %>
+      <% } else { %>
+        <% include ../partials/sub_header_empty.ejs %>
+      <% } %>
     </header>
 
     <main>
 
-      <h2>New User Registration</h2>
+      <div class="page_screen">
+        <h2>New User Registration</h2>
 
-        <form class="form" action="/users" method="POST">
-          <input type="text" name="username" placeholder="username"/><br />
-          <input type="password" name="password" placeholder="password"/><br />
-          <button type="submit">Create User</button>
-        </form>
+          <form class="form" action="/users" method="POST">
+            <input type="text" name="username" placeholder="username"/><br />
+            <input type="password" name="password" placeholder="password"/><br />
+            <button type="submit">Create User</button>
+          </form>
+      </div>
 
     </main>
 

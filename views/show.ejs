@@ -9,7 +9,9 @@
       <%include ./partials/main_nav.ejs%>
       <% if(currentUser){ %>
         <% include ./partials/sub_header.ejs %>
-      <%}%>
+      <% } else { %>
+        <% include ./partials/sub_header_empty.ejs %>
+      <% } %>
     </header>
 
     <main>

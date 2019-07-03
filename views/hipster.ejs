@@ -1,33 +1,32 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-
     <% include ./partials/head.ejs %>
-
   </head>
   <body>
-
     <header>
-
       <% include ./partials/header.ejs %>
-      <% include ./partials/nav.ejs %>
-
+      <% include ./partials/main_nav.ejs %>
+      <% if(currentUser){ %>
+        <% include ./partials/sub_header.ejs %>
+      <% } else { %>
+        <% include ./partials/sub_header_empty.ejs %>
+      <% } %>
     </header>
-
     <main>
-      <p>Echo park taxidermy everyday carry 3 wolf moon. Cold-pressed messenger bag synth neutra gluten-free photo booth poutine brooklyn shabby chic helvetica tattooed mlkshk succulents. Man braid scenester taxidermy letterpress. Migas whatever copper mug, tacos bushwick pabst fashion axe street art ugh intelligentsia vape YOLO typewriter. Microdosing gentrify vape selvage taiyaki iceland williamsburg cardigan.</p>
+      <div class="page_screen">
+        <h2>Hipster Nonsense</h2>
+        <p>Echo park taxidermy everyday carry 3 wolf moon. Cold-pressed messenger bag synth neutra gluten-free photo booth poutine brooklyn shabby chic helvetica tattooed mlkshk succulents. Man braid scenester taxidermy letterpress. Migas whatever copper mug, tacos bushwick pabst fashion axe street art ugh intelligentsia vape YOLO typewriter. Microdosing gentrify vape selvage taiyaki iceland williamsburg cardigan.</p>
 
-      <p>Cardigan woke pickled chartreuse migas vinyl ramps four dollar toast. Kale chips gluten-free church-key four loko, migas whatever hammock asymmetrical tofu taxidermy photo booth thundercats edison bulb. Cred flannel edison bulb meggings selvage affogato microdosing ennui man bun vaporware yr neutra banh mi. Portland shaman cornhole four loko, synth selvage keffiyeh fanny pack blog adaptogen leggings. Whatever pug subway tile bespoke, locavore cloud bread swag. Celiac coloring book trust fund hammock forage ugh beard kombucha salvia. Crucifix dreamcatcher prism helvetica lyft VHS tumblr taiyaki 3 wolf moon coloring book 8-bit celiac williamsburg.</p>
+        <p>Cardigan woke pickled chartreuse migas vinyl ramps four dollar toast. Kale chips gluten-free church-key four loko, migas whatever hammock asymmetrical tofu taxidermy photo booth thundercats edison bulb. Cred flannel edison bulb meggings selvage affogato microdosing ennui man bun vaporware yr neutra banh mi. Portland shaman cornhole four loko, synth selvage keffiyeh fanny pack blog adaptogen leggings. Whatever pug subway tile bespoke, locavore cloud bread swag. Celiac coloring book trust fund hammock forage ugh beard kombucha salvia. Crucifix dreamcatcher prism helvetica lyft VHS tumblr taiyaki 3 wolf moon coloring book 8-bit celiac williamsburg.</p>
 
-      <p>Vice lo-fi palo santo hell of. Jianbing pickled activated charcoal celiac marfa man braid kombucha kogi. Cred four loko plaid, hot chicken scenester palo santo bespoke affogato listicle woke prism neutra cronut retro. Lyft single-origin coffee gluten-free chartreuse pop-up pok pok jianbing aesthetic whatever bicycle rights intelligentsia vice. Banh mi hashtag pitchfork brunch four dollar toast scenester mixtape chicharrones. Ethical selvage bespoke, sartorial typewriter microdosing authentic artisan air plant man bun kinfolk trust fund kitsch.</p>
+        <p>Vice lo-fi palo santo hell of. Jianbing pickled activated charcoal celiac marfa man braid kombucha kogi. Cred four loko plaid, hot chicken scenester palo santo bespoke affogato listicle woke prism neutra cronut retro. Lyft single-origin coffee gluten-free chartreuse pop-up pok pok jianbing aesthetic whatever bicycle rights intelligentsia vice. Banh mi hashtag pitchfork brunch four dollar toast scenester mixtape chicharrones. Ethical selvage bespoke, sartorial typewriter microdosing authentic artisan air plant man bun kinfolk trust fund kitsch.</p>
 
-      <p>Keytar leggings hell of, cray tacos offal mixtape vinyl. Meditation literally cliche deep v selfies lumbersexual heirloom gastropub. Tilde paleo church-key, keffiyeh meggings deep v kombucha prism beard chartreuse taiyaki blog knausgaard. Yr retro raclette, readymade polaroid hexagon offal XOXO. Street art YOLO truffaut mixtape fam, photo booth keytar bicycle rights.</p>
+        <p>Keytar leggings hell of, cray tacos offal mixtape vinyl. Meditation literally cliche deep v selfies lumbersexual heirloom gastropub. Tilde paleo church-key, keffiyeh meggings deep v kombucha prism beard chartreuse taiyaki blog knausgaard. Yr retro raclette, readymade polaroid hexagon offal XOXO. Street art YOLO truffaut mixtape fam, photo booth keytar bicycle rights.</p>
 
-      <p>Coloring book art party asymmetrical organic, umami migas tbh drinking vinegar tacos enamel pin YOLO freegan bespoke. Taxidermy live-edge jianbing tote bag. Scenester knausgaard pitchfork VHS sriracha. Truffaut edison bulb tote bag raclette quinoa woke.</p>
-
+        <p>Coloring book art party asymmetrical organic, umami migas tbh drinking vinegar tacos enamel pin YOLO freegan bespoke. Taxidermy live-edge jianbing tote bag. Scenester knausgaard pitchfork VHS sriracha. Truffaut edison bulb tote bag raclette quinoa woke.</p>
+      </div>
     </main>
-
     <% include ./partials/footer.ejs %>
-
   </body>
 </html>

@@ -7,23 +7,31 @@
     <header>
       <% include ./partials/header.ejs %>
       <% include ./partials/show_nav.ejs %>
+      <% if(currentUser){ %>
+        <% include ./partials/sub_header.ejs %>
+      <% } else { %>
+        <% include ./partials/sub_header_empty.ejs %>
+      <% } %>
     </header>
 
     <main>
 
-      <h2>Edit Post</h2>
+      <div class="page_screen">
+        <h2>Edit Post</h2>
 
-      <form class="form" action="/cutecats/<%=index%>?_method=PUT" method="POST">
-        <label>Edit Name</label><br/><input type="text" name="name" value="<%=cat.name%>"><br />
-        <label>Edit Image</label><br/><input type="text" name="img" value="<%=cat.img%>"><br />
-        <label>Edit Description</label><br/><textarea name="about" value="<%=cat.about%>"></textarea><br />
-        <label>Will <%=cat.name%> Scatch?</label><input type="checkbox" name="willScratch"
-          <%if(cat.willScratch === true){%>
-            checked
-          <%}%>
-        ><br />
-        <button type="submit">Edit Post</button>
-      </form>
+        <form class="form" action="/cutecats/<%=index%>?_method=PUT" method="POST">
+          <label>Edit Name</label><br/><input type="text" name="name" value="<%=cat.name%>"><br />
+          <label>Edit Image</label><br/><input type="text" name="img" value="<%=cat.img%>"><br />
+          <label>Edit Description</label><br/><textarea name="about" value="<%=cat.about%>"></textarea><br />
+          <label>Will <%=cat.name%> Scatch?</label><input type="checkbox" name="willScratch"
+            <%if(cat.willScratch === true){%>
+              checked
+            <%}%>
+          ><br />
+          <button type="submit">Edit Post</button>
+        </form>
+      </div>
+
 
   </main>
 

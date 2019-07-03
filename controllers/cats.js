@@ -19,9 +19,40 @@ router.get('/',(req,res) => {
 });
 
 router.get('/hipster', (req,res) => {
-  res.render('hipster.ejs')
+  res.render('hipster.ejs',{
+    currentUser: req.session.currentUser
+  })
 })
 
+router.get('/cookies', (req,res) => {
+  res.render('cookies.ejs',{
+    currentUser: req.session.currentUser
+  })
+})
+
+router.get('/about', (req,res) => {
+  res.render('about.ejs',{
+    currentUser: req.session.currentUser
+  })
+})
+
+router.get('/terms', (req,res) => {
+  res.render('terms.ejs',{
+    currentUser: req.session.currentUser
+  })
+})
+
+router.get('/careers', (req,res) => {
+  res.render('careers.ejs',{
+    currentUser: req.session.currentUser
+  })
+})
+
+router.get('/privacy', (req,res) => {
+  res.render('privacy.ejs',{
+    currentUser: req.session.currentUser
+  })
+})
 // =======================================
 // <<<<<<<<<<<<DELETE ROUTE >>>>>>>>>>>>>>>
 // =======================================
@@ -39,7 +70,8 @@ router.get('/:id/edit',(req,res) => {
     res.render('edit.ejs',
       {
         cat: foundCat,
-        index: req.params.id
+        index: req.params.id,
+        currentUser: req.session.currentUser
       });
   });
 });
@@ -85,7 +117,9 @@ router.put('/like/:id', (req,res) => {
 // =======================================
 router.get('/new',(req,res) => {
   if(req.session.currentUser){
-    res.render('new.ejs')
+    res.render('new.ejs',{
+      currentUser: req.session.currentUser
+    })
   }else {
     res.redirect('/sessions/new')
   }
