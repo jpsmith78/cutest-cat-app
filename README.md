@@ -13,29 +13,22 @@ I then created new and create routes and new.ejs page in my views folder.  This 
 
 After this, I installed method-override and made a delete route and edit route on my show page.  The edit route rendered the edit.ejs page where the user can make changes to their cat.
 
-After building all of my routes in the server.js file and making sur ethat they worked, I created a controllers folder and put them all in a cats.js file there, along with a seed route that has some pre made cats in it. I required this in server.js dependencies and put a user controller for it toward the bottom of the page.
+After building all of my routes in the server.js file and making sure that they worked, I created a controllers folder and put them all in a cats.js file there, along with a seed route that has some pre made cats in it. I required this in server.js dependencies and put a user controller for it toward the bottom of the page.
 
 Once this all functioned correctly, I had to add the register and login functionality. I created sessions and user folders in views: each with a new.ejs file, a users.js file in models, and sessions.js and users.js files in controllers.  first I made my model and required it in my conrollers.  Then I wrote my controller files and required them in server.js dependencies and added controllers down below.  Then I made the forms in my sessions and users view files and rendered these in the controllers.  
-Once these were all connected, it was simply a matter of hashiing the password using bcrypt and storing my secret in dotenv.  I did have to rely heavily on the GA password markdown to get through this part.
-
+Once these were all connected, I hashed the password using bcrypt and stored the secret string in dotenv.  
 After everything was connected, it was just a matter of getting options to appear and disappear based on the user login state and id.
-
 Then, of course I styled it. Not a huge amount of surprises in that process.
 
 ## Solved problems
 I broke my app by putting my sessions and users controllers above my dynamic cats controller.
 
+### Later additions and fixes
+I added the viewport meta data to make the app responsive.
+
+I had to re wireframe and restyle the entire page. I made better use of partial views and added several new pages that link through the footer.
+
+Users could register without a password and loggin in with a wrong username or password crashed the app.  I've fixed both of these issues in my user ans session controller files.
+
 ## Unsolved problems
-I could not figure out how to get the like and dislike buttons to only work one time.
-
-Will change each one to a toggle for each user and show total of toggles for each cat.
-
-Styling was fine for the most part, but I had a hard time getting styling onto my submit buttons for some reason.
-
-Restyling to look like facebook page (catbook, facecat) and fix buttons.
-
-Will fix crash when user tries to log in with wrong user name
-## Notes
-Many of the cats in this app are from friends and family.  The seed data is made up.
-
-Definitely get the like buttons to only fire once per session in the future.
+Like buttons toggle once per session but users can log back in and like again.
