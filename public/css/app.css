@@ -83,16 +83,12 @@ main {
   margin: 0;
   overflow-y: scroll;
 }
-.page_screen > h2, .page_screen > h3, .page_screen > p {
+.page_screen > *, .fail_screen > * {
   color: var(--dark_blue);
   margin: 10px auto;
   padding: 10px;
 }
-.fail_screen > h2, .fail_screen > h3 {
-  color: var(--dark_blue);
-  margin: 10px auto;
-  padding: 10px;
-}
+
 /* ============================
 <<<<<<<<<INDEX>>>>>>>>>>>>
 ============================= */
@@ -145,7 +141,7 @@ main {
 .cat_description {
   padding: 6px;
   width: 90%;
-  height: 100px;
+  height: 150px;
   overflow-y: scroll;
   background: var(--off_white);
   color: var(--dark_blue);
@@ -198,6 +194,7 @@ input[type=checkbox]{
   width: 80%;
   margin: 100px auto;
 }
+
 /* ============================
 <<<<<<<<<COOKIES>>>>>>>>>>>
 ============================= */
@@ -255,12 +252,16 @@ button:hover, a:hover {
 ============================= */
 @media (max-width: 600px){
   .footer_text {
-    font-size: 10px;
+    font-size: 12px;
   }
   footer > ul {
     margin: 0;
   }
   .cat_show {
     width: 60%;
+  }
+  .cookies {
+    background-size: 90%;
+    height: 50%;
   }
 }
