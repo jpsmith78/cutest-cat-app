@@ -80,10 +80,12 @@ nav {
 ============================= */
 main {
   width: 100%;
+  margin: 0;
+  overflow-y: scroll;
 }
 .page_screen > h2, .page_screen > h3, .page_screen > p {
   color: var(--dark_blue);
-  margin: 50px auto;
+  margin: 10px auto;
   padding: 10px;
 }
 .fail_screen > h2, .fail_screen > h3 {
@@ -95,15 +97,11 @@ main {
 <<<<<<<<<INDEX>>>>>>>>>>>>
 ============================= */
 .tile_container {
-  width: 90%;
-  margin: 50px auto;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  height: 700px;
-  overflow-y: scroll;
-  background: var(--off_white);
   border-radius: 5px;
 }
 .cat_tile {
@@ -161,6 +159,7 @@ main {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  padding-bottom: 40px;
   margin: auto;
 }
 .form {
@@ -191,11 +190,12 @@ input[type=checkbox]{
 }
 .fail_screen {
   height: 650px;
+  width: 80%;
   margin: 200px auto;
 }
 .page_screen {
   height: 650px;
-  width: 90%;
+  width: 80%;
   margin: 100px auto;
 }
 /* ============================
@@ -212,8 +212,7 @@ input[type=checkbox]{
 <<<<<<<<<<FOOTER>>>>>>>>>>>>>
 ============================= */
 footer {
-  position: relative;
-  margin-top: 50px;
+  position: absolute;
   width: 100%;
   background: var(--white);
   display: flex;

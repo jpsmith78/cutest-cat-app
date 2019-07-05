@@ -162,7 +162,8 @@ router.get('/:id',(req,res) => {
       {
         cat: foundCat,
         index: req.params.id,
-        currentUser: req.session.currentUser
+        currentUser: req.session.currentUser,
+        currentLike: req.session.like
       },
     )
   });

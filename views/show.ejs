@@ -33,7 +33,12 @@
         <%if(currentUser){%>
         <form action="/cutecats/like/<%=index%>?_method=PUT" method="POST">
           <input type="hidden" name="likes" value="<%=cat.likes%>">
-          <button id="like_button" type="submit" class="far fa-thumbs-up"><span>Like</span></button>
+          <% if(!currentLike.toggle){ %>
+            <button id="like_button" type="submit" class="far fa-thumbs-up"><span>Like</span></button>
+          <% } else { %>
+            <button id="like_button" type="submit" class="fas fa-thumbs-up"><span>Unlike</span></button>
+          <% } %>
+
         </form>
 
 
